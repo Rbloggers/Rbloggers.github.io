@@ -28,9 +28,9 @@ ln_new=$(cat new.txt | wc -l)
 dif=$(diff old.txt new.txt)
 if [ -z "$dif" ]; then # If empty, i.e. new = old
     echo "No posts created."
-elif [[ $ln_new -gt $ln_old ]]
+elif [[ $ln_new -gt $ln_old ]]; then
     echo 'New Posts detected'
-elif [[ $ln_new -le $ln_old ]]
+elif [[ $ln_new -le $ln_old ]]; then
     echo 'More old posts or post name changed. Need inspection'
     exit 100
 fi
