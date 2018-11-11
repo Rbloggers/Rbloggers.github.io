@@ -9,8 +9,10 @@ cp -r _posts/* web/_posts/
 
 # write new post
 ## To Do: 
-##   1. write yaml and file name (author, date): _EOF_, rand_generator
-##   2. insert HTML + insert <!--more-->
+##   1. write yaml 
+##      1. Author, title, tags, link, highlight:true
+##   2. file name (date + author + link_end): _EOF_, rand_generator
+##   2. insert HTML + insert <!--more--> before the first </p>
 
 # Archive All posts
 cd web
