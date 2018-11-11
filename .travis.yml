@@ -11,6 +11,7 @@ script:
   - bash getjson.sh
   - mkdir docs
   - echo "Hello world" > docs/index.md
+  - rm .travis.yml
 
 # deploy
 deploy:
