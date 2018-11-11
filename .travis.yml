@@ -2,10 +2,11 @@ language: generic
 sudo: required
 dist: trusty
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install hugo
-
-
+  - sudo dpkg -i depend/hugo.deb
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/depend
+    
 script:
   - bash getjson.sh
   - mkdir docs
