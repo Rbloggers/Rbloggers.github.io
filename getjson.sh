@@ -9,6 +9,7 @@
 curl https://rbloggers.github.io/RSSparser/authorlist.txt > authorlist.txt
 
 # Pull data from RSSparser
+[[ -d authors ]] || mkdir authors
 cd authors
 while read p; do
     dirname=$(echo "$p" | cut -d ',' -f 1)
