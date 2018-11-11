@@ -23,14 +23,16 @@ cd -
 # Check whether there are new posts
 ls _posts/ > old.txt
 ls web/_posts/ > new.txt
+ln_old=$(cat old.txt | wc -l)
+ln_new=$(cat new.txt | wc -l)
 dif=$(diff old.txt new.txt)
 if [ -z "$dif" ]; then # If empty, i.e. new = old
-    echo "No new posts created."
-    echo "Use old.tar.gz"
-    rm posts.tar.gz
-    mv old.tar.gz posts.tar.gz
-else
+    echo "No posts created."
+elif [[ $ln_new -gt $ln_old ]]
     echo 'New Posts detected'
+elif [[ $ln_new -le $ln_old ]]
+    echo 'More old posts or post name changed. Need inspection'
+    exit 100
 fi
 
 # Move posts.tar.gz to posts_tar/
