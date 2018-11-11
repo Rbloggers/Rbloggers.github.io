@@ -68,3 +68,8 @@ $(document).ready(function() {
 <script>hljs.initHighlightingOnLoad();</script>
 
 {% endif %}
+
+<!-- Test Whole site sharing -->
+{%- if _sharing != false -%}
+<section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
+{%- endif -%}
