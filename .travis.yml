@@ -9,14 +9,16 @@ cache:
     
 script:
   - bash getjson.sh
-  - mkdir docs
-  - echo "Hello world" > docs/index.md
-  - rm .travis.yml
+  - cp -r authors/ web/  # so that RSSparse can get old json #- bash write_post.sh
+  - tar -zcvf post.tar.gz web/_post # before: download post.tar.gz then extract
+  - mkdir post_tar; mv post.tar.gz post_tar/
+  # tar.gz web/_post into post_tar/post.tar.gz
 
 # deploy
 deploy:
   - provider: pages    # Deploy master to branch posts
     target-branch: posts
+    local-dir: post_tar
     skip-cleanup: true
     github-token: $GH_TOKEN  # Set in travis-ci.org dashboard
     keep-history: false
