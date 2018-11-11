@@ -59,6 +59,11 @@
           {%- if _show_author  -%}
             <li><i class="fas fa-user"></i> <span>{{ _author.name }}</span></li>
           {%- endif -%}
+          
+          <!-- Link to Original Post -->
+          {%- if page.link -%}
+            <li><i class="fas fa-link"></i> <span><a href="{{ page.link }}">原文</a></span></li>
+          {%- endif -%}
 
           {%- if _show_date -%}
             <li>
