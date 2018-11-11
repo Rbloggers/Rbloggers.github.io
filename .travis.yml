@@ -10,15 +10,15 @@ cache:
 script:
   - bash getjson.sh
   - cp -r authors/ web/  # so that RSSparse can get old json #- bash write_post.sh
-  - tar -zcvf post.tar.gz web/_post # before: download post.tar.gz then extract
-  - mkdir post_tar; mv post.tar.gz post_tar/
+  - tar -zcvf posts.tar.gz web/_posts # before: download post.tar.gz then extract
+  - mkdir posts_tar; mv posts.tar.gz posts_tar/
   # tar.gz web/_post into post_tar/post.tar.gz
 
 # deploy
 deploy:
   - provider: pages    # Deploy master to branch posts
     target-branch: posts
-    local-dir: post_tar
+    local-dir: posts_tar
     skip-cleanup: true
     github-token: $GH_TOKEN  # Set in travis-ci.org dashboard
     keep-history: false
