@@ -18,21 +18,17 @@ tar -zcvf posts.tar.gz _posts # Archive _posts
 mv posts.tar.gz ../
 cd - 
 
-# Compare size of old.tar.gz & posts.tar.gz
-new=$(stat --printf="%s" posts.tar.gz)
-old=$(stat --printf="%s" old.tar.gz)
-if [[ $old -gt $new ]]; then 
-    echo 'old.tar.gz is larger than posts.tar.gz (Need checking)'
-    echo 'Use old.tar.gz instead'
-    rm posts.tar.gz
-    mv old.tar.gz posts.tar.gz
-elif [[ $old -eq $new ]]; then
-    echo 'old.tar.gz is equal to posts.tar.gz'
-    echo 'Use old.tar.gz instead'
+# Check whether there are new posts
+ls _posts/ > old.txt
+ls web/_posts/ > new.txt
+dif=$(diff old.txt new.txt)
+if [ -z "$dif" ]; then # If empty, i.e. new = old
+    echo "No new posts created."
+    echo "Use old.tar.gz"
     rm posts.tar.gz
     mv old.tar.gz posts.tar.gz
 else
-    echo 'Use posts.tar.gz'
+    echo 'New Posts detected'
 fi
 
 # Move posts.tar.gz to posts_tar/
