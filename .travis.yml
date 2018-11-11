@@ -9,9 +9,9 @@ cache:
     
 script:
   - bash getjson.sh
-  - cp -r authors/ web/  # so that RSSparse can get old json #- bash write_post.sh
-  - tar -zcvf posts.tar.gz web/_posts # before: download post.tar.gz then extract
-  - mkdir posts_tar; mv posts.tar.gz posts_tar/
+  - cp -r authors/ web/  # so that RSSparse can get old json #- bash write_post.sh  #- curl --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > posts.tar.gz #- tar -zxvf posts.tar.gz
+  - cd web; tar -zcvf posts.tar.gz _posts; cd - # before: download post.tar.gz then extract
+  - mkdir posts_tar; mv web/posts.tar.gz posts_tar/
   # tar.gz web/_post into post_tar/post.tar.gz
 
 # deploy
