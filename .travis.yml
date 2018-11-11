@@ -9,12 +9,7 @@ cache:
     
 script:
   - bash getjson.sh
-  - cp -r authors/ web/  # so that RSSparse can get old json 
-  - curl --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz 
-  - tar -zxvf old.tar.gz  # extract _posts
-  - cp -r _posts/* web/_posts/ && rm -r _posts/ #- bash write_post.sh 
-  - cd web; tar -zcvf posts.tar.gz _posts; cd - # compress _posts - # Compare size of old.tar.gz & posts.tar.gz
-  - mkdir posts_tar; mv web/posts.tar.gz posts_tar/
+  - bash write_post.sh
 
 # deploy
 deploy:
@@ -23,7 +18,7 @@ deploy:
     local-dir: posts_tar
     skip-cleanup: true
     github-token: $GH_TOKEN  # Set in travis-ci.org dashboard
-    keep-history: false
+    keep-history: true
     on:
       branch: master
   - provider: pages    # Deploy master to branch gh-pages

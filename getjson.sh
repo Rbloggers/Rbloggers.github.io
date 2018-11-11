@@ -25,3 +25,6 @@ done < ../authorlist.txt
 cd -
 
 rm authorlist.txt
+
+# Make json files available through Rbloggers.github.io/web
+cp -r authors/ web/
