@@ -1,0 +1,26 @@
+header:
+  - titles:
+      en:       Home
+      zh:       Home
+      zh-Hans:  Home
+      zh-Hant:  首頁
+    url:        /index.html
+  - titles:
+      en:       Tags
+      zh:       归档
+      zh-Hans:  归档
+      zh-Hant:  文章
+    url:        /archive.html
+  - titles:
+      en:       About
+      zh:       About
+      zh-Hans:  About
+      zh-Hant:  關於
+    url:        /about.html
+  - titles:
+      en:       Join
+      zh:       Work
+      zh-Hans:  Work
+      zh-Hant:  加入
+    url:        /join.html
+
