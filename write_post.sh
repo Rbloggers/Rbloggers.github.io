@@ -40,8 +40,7 @@ tar -zcvf posts.tar.gz _posts # Archive _posts
 mv posts.tar.gz ../
 cd - 
 
-# Move posts.tar.gz & FBdata to posts_tar/
-mkdir posts_tar
+# Move posts.tar.gz & FBdata to posts_tar/ (created in getjson.sh)
 mv posts.tar.gz posts_tar/
 mv FB_* posts_tar/
 

@@ -26,5 +26,7 @@ cd -
 
 rm authorlist.txt
 
-# Make json files available through Rbloggers.github.io/web
+# Make json files available in gh-pages & posts branches
 cp -r authors/ web/
+mkdir posts_tar
+cp -r authors/ posts_tar/

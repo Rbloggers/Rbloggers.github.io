@@ -34,4 +34,8 @@ for i in range(0, len(new_post['id'])):
         fpt.write(new_post['title'][i] + '\n')
     with open('FB_link.txt', 'a') as fp:
         fp.write(new_post['id'][i] + '\n')
+    with open('FB_tags.txt', 'a') as fp:
+        for k in new_post['tags'][i]:
+            fp.write(str(k) + ',')
+        fp.write('\n')
 
