@@ -16,12 +16,9 @@ while read p; do
     # python write post to web/_posts
 done < autls
 
-####### Once FIXING
-rm web/_posts/empty
-#########
 
 # Check whether there are new posts
-: '
+
 ls _posts/ > old.txt
 ls web/_posts/ > new.txt
 ln_old=$(cat old.txt | wc -l)
@@ -35,7 +32,7 @@ elif [[ $ln_new -le $ln_old ]]; then
     echo "More old posts or post name changed. Need inspection"
     exit 100
 fi
-'
+
 
 # Archive All posts
 cd web
