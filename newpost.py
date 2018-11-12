@@ -10,11 +10,13 @@ with open(fp) as f:
 
 # Write Posts (one author) to 'web/_posts'
 yaml_aut = 'author: "' + new_post['author'] + '"'
+fb_title = ['']*len(new_post['id'])
+fb_link = ['']*len(new_post['id'])
 for i in range(0, len(new_post['id'])):
     ## Get filename
     filename = new_post['date'][i] + '-' + aut + '-' + os.path.basename(new_post['id'][i])
 
-    ## Write yaml header
+    ## Write New posts
     yaml_title = 'title: "' + new_post['title'][i] + '"'
     yaml_tags = 'tags: ' + str(new_post['tags'][i])
     yaml_link = 'link: "' + new_post['id'][i] + '"'
@@ -26,4 +28,10 @@ for i in range(0, len(new_post['id'])):
     f.write('---\n\n')
     f.write(content)
     f.close()
-    
+
+    ## Write Facebook new post data    
+    with open('FB_title.txt', 'a') as fpt:
+        fpt.write(new_post['title'][i] + '\n')
+    with open('FB_link.txt', 'a') as fp:
+        fp.write(new_post['id'][i] + '\n')
+

@@ -16,7 +16,6 @@ while read p; do
     # python write post to web/_posts
 done < autls
 
-
 # Check whether there are new posts
 
 ls _posts/ > old.txt
@@ -34,12 +33,23 @@ elif [[ $ln_new -le $ln_old ]]; then
 fi
 
 
+
 # Archive All posts
 cd web
 tar -zcvf posts.tar.gz _posts # Archive _posts
 mv posts.tar.gz ../
 cd - 
 
-# Move posts.tar.gz to posts_tar/
+# Move posts.tar.gz & FBdata to posts_tar/
 mkdir posts_tar
 mv posts.tar.gz posts_tar/
+mv FB_* posts_tar/
+
+
+## Clean up
+rm autls
+rm old.txt
+rm new.txt
+rm -r *tar.gz
+rm -r authors/
+rm -r _posts/
