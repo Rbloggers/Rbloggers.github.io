@@ -71,15 +71,3 @@ $telegram-color:   #32afed;
 
 // highlight colors
 @import "skins/highlight/tomorrow-night-eighties";
-
-img {
-    border-radius: .4rem;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, .5);
-    margin-bottom: 1.0em;
-}
-
-img.ori {
-    border-radius: 0;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-    margin-bottom: 0em;
-    }
