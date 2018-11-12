@@ -1,0 +1,9 @@
+/new.txt
+/old.txt
+/posts_tar
+/authors
+/_posts
+/*.tar.gz
+/.vscode
+/web/_posts/*
+/web/authors/*

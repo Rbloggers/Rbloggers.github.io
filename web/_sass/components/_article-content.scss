@@ -1,4 +1,6 @@
 .article__content {
+  // custom padding top
+  padding-top: 0.8em;
   line-height: map-get($base, line-height-lg);
   word-wrap: break-word;
   @media print {

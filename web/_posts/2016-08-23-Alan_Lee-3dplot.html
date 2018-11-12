@@ -1,8 +1,0 @@
----
-author: "Alan Lee"
-title: "3D繪圖"
-tags: ['plot', 'tutorials', 'visualization']
-link: "http://rwepa.blogspot.com/2016/08/3dplot.html"
----
-
-R具備強大的繪圖能力, 一般2D繪圖採用 plot( ), 如果想要有3D動態繪圖, 此時可考慮使用scatter3d{car} 與 rgl套件, 達到使用者互動功能. 完成的圖形具備以下二大功能:<br />1. 滑鼠中間滾輪: 可放大/縮小圖形.<br />2. 滑鼠左鍵: 可以360度旋轉圖形.<br /><br /><pre class="prettyprint lang-r"># 3D繪圖<br />data(iris)<br />library(car)<br />library(rgl)<br />scatter3d(iris$Sepal.Length,<br />          iris$Sepal.Width,<br />          iris$Petal.Length,<br />          group =iris$Species,<br />          surface = FALSE)<br /># end<br /></pre><br /><div class="separator" style="clear: both; text-align: left;"><a href="https://2.bp.blogspot.com/-4ypMNDjWmUs/V7wZnSgfydI/AAAAAAAAKpU/dnKtXmapjwsjwe-YySCfoBehLS8PaX-SwCLcB/s1600/3dplot.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="330" src="https://2.bp.blogspot.com/-4ypMNDjWmUs/V7wZnSgfydI/AAAAAAAAKpU/dnKtXmapjwsjwe-YySCfoBehLS8PaX-SwCLcB/s400/3dplot.png" width="400" /></a></div>

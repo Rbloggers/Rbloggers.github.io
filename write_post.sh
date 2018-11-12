@@ -7,12 +7,14 @@ tar -zxvf old.tar.gz
 cp -r _posts/* web/_posts/
 
 
-# write new post
-## To Do: 
-##   1. write yaml 
-##      1. Author, title, tags, link, highlight:true
-##   2. file name (date + author + link_end): _EOF_, rand_generator
-##   2. insert HTML + insert <!--more--> before the first </p>
+# write new posts for every author
+ls authors/ > autls
+
+while read p; do
+    python3 newpost.py "$p"
+    # python write post to web/_posts
+done < autls
+
 
 # Archive All posts
 cd web
