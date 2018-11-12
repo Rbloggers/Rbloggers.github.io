@@ -3,14 +3,14 @@
 # Get Old Posts
 curl --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz 
 tar -zxvf old.tar.gz  
+
 ## Copy old posts to web/
+[[ -d web/_posts ]] || mkdir web/_posts
 cp -r _posts/* web/_posts/
 
 
 # write new posts for every author
 ls authors/ > autls
-
-[[ -d web/_posts ]] || mkdir web/_posts
 while read p; do
     python3 newpost.py "$p"
     # python write post to web/_posts
