@@ -16,14 +16,12 @@ while read p; do
     # python write post to web/_posts
 done < autls
 
-
-# Archive All posts
-cd web
-tar -zcvf posts.tar.gz _posts # Archive _posts
-mv posts.tar.gz ../
-cd - 
+####### Once FIXING
+rm web/_posts/empty
+#########
 
 # Check whether there are new posts
+: '
 ls _posts/ > old.txt
 ls web/_posts/ > new.txt
 ln_old=$(cat old.txt | wc -l)
@@ -32,11 +30,18 @@ dif=$(diff old.txt new.txt)
 if [ -z "$dif" ]; then # If empty, i.e. new = old
     echo "No posts created."
 elif [[ $ln_new -gt $ln_old ]]; then
-    echo 'New Posts detected'
+    echo "New Posts detected"
 elif [[ $ln_new -le $ln_old ]]; then
-    echo 'More old posts or post name changed. Need inspection'
+    echo "More old posts or post name changed. Need inspection"
     exit 100
 fi
+'
+
+# Archive All posts
+cd web
+tar -zcvf posts.tar.gz _posts # Archive _posts
+mv posts.tar.gz ../
+cd - 
 
 # Move posts.tar.gz to posts_tar/
 mkdir posts_tar
