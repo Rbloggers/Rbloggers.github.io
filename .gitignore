@@ -5,5 +5,5 @@
 /_posts
 /*.tar.gz
 /.vscode
-/web/_posts/*
+/web/_posts/*.html
 /web/authors/*
