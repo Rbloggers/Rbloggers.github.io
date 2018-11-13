@@ -7,7 +7,7 @@
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
-[[ -d _posts ]] || echo '/_posts does not exist.'
+[[ -d _posts ]] || mkdir _posts/ && echo '/_posts does not exist.'
 [[ -d _posts ]] && cp -r _posts/* web/_posts/
 
 
