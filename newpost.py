@@ -3,7 +3,12 @@ import sys, os, json
 # Get author (path to authors/<author>/new_post.json)
 aut = sys.argv[1]
 fp = 'authors/' + aut + '/new_post.json'
+print("Start writing " + aut + "\'s new posts ...")
 
+# Exit if new_post.json is empty
+if os.path.getsize(fp) == 0:
+    print('new_post.json is empty.\n')
+    sys.exit(0)
 # Read new_post.json
 with open(fp) as f:
     new_post = json.load(f)
@@ -12,9 +17,10 @@ with open(fp) as f:
 yaml_aut = 'author: "' + new_post['author'] + '"'
 fb_title = ['']*len(new_post['id'])
 fb_link = ['']*len(new_post['id'])
+base = 'https://rbloggers.github.io/web/'
 for i in range(0, len(new_post['id'])):
     ## Get filename
-    filename = new_post['date'][i] + '-' + aut + '-' + os.path.basename(new_post['id'][i])
+    filename = os.path.basename(new_post['rblog_url'][i])
 
     ## Write New posts
     yaml_title = 'title: "' + new_post['title'][i] + '"'
@@ -31,7 +37,7 @@ for i in range(0, len(new_post['id'])):
 
     ## Write Facebook new post data    
     with open('FB_title.txt', 'a') as fpt:
-        fpt.write(new_post['title'][i] + '\n')
+        fpt.write(base + new_post['rblog_url'][i] + '\n')
     with open('FB_link.txt', 'a') as fp:
         fp.write(new_post['id'][i] + '\n')
     with open('FB_tags.txt', 'a') as fp:

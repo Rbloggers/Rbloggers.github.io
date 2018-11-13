@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Get Old Posts
-curl --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz 
-tar -zxvf old.tar.gz  
+curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz
+echo -e "Curl old.tar.gz\n"
+tar -zxf old.tar.gz  
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
@@ -36,13 +37,14 @@ fi
 
 # Archive All posts
 cd web
-tar -zcvf posts.tar.gz _posts # Archive _posts
+tar -zcf posts.tar.gz _posts # Archive _posts
 mv posts.tar.gz ../
 cd - 
 
 # Move posts.tar.gz & FBdata to posts_tar/ (created in getjson.sh)
 mv posts.tar.gz posts_tar/
-mv FB_* posts_tar/
+[[ -f FB_title.txt ]] && mv FB_* posts_tar/
+[[ -f FB_title.txt ]] || echo 'Create empty FB_*.txt' && touch posts_tar/FB_title.txt posts_tar/FB_link.txt posts_tar/FB_tags.txt
 
 
 ## Clean up
