@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Get Old Posts
-#curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz
-#echo -e "Curl old.tar.gz\n"
-#tar -zxf old.tar.gz  
+curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz
+echo -e "Curl old.tar.gz\n"
+tar -zxf old.tar.gz  
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
@@ -50,6 +50,6 @@ cd -
 rm autls
 rm old.txt
 rm new.txt
-rm -r *tar.gz
+[[ -f old.tar.gz ]] && rm -r old.tar.gz
 rm -r authors/
-rm -r _posts/
+[[ -d _posts/ ]] && rm -r _posts/
