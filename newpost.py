@@ -7,7 +7,7 @@ print("Start writing " + aut + "\'s new posts ...")
 
 # Exit if new_post.json is empty
 if os.path.getsize(fp) == 0:
-    print('new_post.json is empty.\n')
+    print('new_post.json is empty.\nSkipping this author.\n')
     sys.exit(0)
 # Read new_post.json
 with open(fp) as f:
