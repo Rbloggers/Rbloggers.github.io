@@ -2,7 +2,7 @@
 layout: join
 title: 加入我們
 comment: false
-author: ['Yongfu Liao','Alan Lee']
+author: ['Yongfu Liao','Alan Lee', 'G. T. Wang']
 ---
 
 ## 動機
