@@ -1,5 +1,5 @@
 ---
-layout: page-join
+layout: article-join
 title: 加入我們
 comment: false
 ---
@@ -9,7 +9,7 @@ comment: false
 
 
 <br>
-<h2>成員</h2>
+<h1>成員</h2>
 {% for author in page.author %}
 {% assign _author = site.data.authors[author] %}
 {%- if _author.type == 'organization' -%}
@@ -17,14 +17,14 @@ comment: false
 {%- else -%}
   {%- assign _author_itemtype = 'http://schema.org/Person' -%}
 {%- endif -%}
-<div itemscope itemtype="{{ _author_itemtype }}" class="author-profile card item">
+<div itemscope itemtype="{{ _author_itemtype }}" class="author-profile card item"> <!-- card--flat --> 
   {%- if _author.avatar -%}
     {%- if _author.url -%}
     <a href="{{ _author.url }}" class="item__image">
     {%- endif -%}
       {%- include snippets/get-nav-url.html path=_author.avatar -%}
       {%- assign _author_avatar = __return -%}
-      <img itemprop="image" src="{{ _author_avatar }}" />
+      <img itemprop="image" src="{{ _author_avatar }}" class="ori"/>
     {%- if _author.url -%}
     </a>
     {%- endif -%}
