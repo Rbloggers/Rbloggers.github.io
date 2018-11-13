@@ -11,10 +11,20 @@ Alan Lee:
   name      : Alan Lee
   url       : http://rwepa.blogspot.com/
   avatar    : /assets/images/default-avatar.jpeg
-  bio       : '<strong>R 部落客</strong>'
+  bio       : '我是 Alan Lee'
   email     : empty@gmail.com
   github    : empty
   facebook  : empty
+  
+G. T. Wang:
+  name      : G. T. Wang
+  url       : https://blog.gtwang.org/about/
+  avatar    : https://blog.gtwang.org/wp-content/uploads/2015/03/gtwang-logo-blue-1024x1024.png
+  bio       : '我是 G. T. Wang'
+  email     : empty@gmail.com
+  github    : empty
+  facebook  : empty
+  
 #Tian Qi:
 #  name      : Tian Qi
 #  url       : https://tianqi.name

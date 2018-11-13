@@ -16,7 +16,11 @@ author: ['Yongfu Liao','Alan Lee']
 
 - 所有文章**皆與 R 語言相關**
 
-    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS feed。bloggers 和 WordPress 等平台有內建這項功能。若使用 Jekyll，可參考[這篇文章](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)。Hugo 也可用類似的方式修改 [RSS 模板](https://gohugo.io/templates/rss/)。
+    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS feed：
+        - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
+        - [WordPress 說明](https://en.support.wordpress.com/feeds/#your-feeds)
+        - Jekyll 可參考[這篇文章](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)。
+        - Hugo 也可用類似 Jekyll 的方式修改 [RSS 模板](https://gohugo.io/templates/rss/)
 
 - 文章需為**繁體中文**
 
