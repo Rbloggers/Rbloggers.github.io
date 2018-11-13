@@ -3,11 +3,12 @@
 # Get Old Posts
 #curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz
 #echo -e "Curl old.tar.gz\n"
-#tar -zxf old.tar.gz  
+#tar -zxf old.tar.gz
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
-cp -r _posts/* web/_posts/
+[[ -d _posts ]] || echo '/_posts does not exist.'
+[[ -d _posts ]] && cp -r _posts/* web/_posts/
 
 
 # write new posts for every author
