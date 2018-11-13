@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: join
 title: 加入我們
 comment: false
+author: ['Yongfu Liao','Alan Lee','Yongfu Liao','Alan Lee','Yongfu Liao','Alan Lee','Yongfu Liao']
 ---
 
-### 提交 RSS
 
-<br>
+## H2 Header 
+
+歡迎加入我們
