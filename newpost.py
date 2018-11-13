@@ -20,8 +20,7 @@ fb_link = ['']*len(new_post['id'])
 base = 'https://rbloggers.github.io/web/'
 for i in range(0, len(new_post['id'])):
     ## Get filename
-    filename = os.path.basename(new_post['rblog_url'][i])
-
+    filename = new_post['date'][i] + '-' + os.path.basename(new_post['rblog_url'][i])
     ## Write New posts
     yaml_title = 'title: "' + new_post['title'][i] + '"'
     yaml_tags = 'tags: ' + str(new_post['tags'][i])
