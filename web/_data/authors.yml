@@ -1,5 +1,5 @@
 Yongfu Liao:
-  name      : Yongfu Liao
+  name      : "Yongfu Liao"
   url       : https://liao961120.github.io
   avatar    : https://liao961120.github.io/assets/images/me-about.png
   bio       : '<strong>R 部落客</strong>站長<br>興趣是 R Markdown。把 Travis-CI 當自己的第二台電腦在用。'
@@ -8,7 +8,7 @@ Yongfu Liao:
   facebook  : liao961120
 
 Alan Lee:
-  name      : Alan Lee
+  name      : "Alan Lee"
   url       : http://rwepa.blogspot.com/
   avatar    : /assets/images/default-avatar.jpeg
   bio       : '我是 Alan Lee'
@@ -17,7 +17,7 @@ Alan Lee:
   facebook  : empty
   
 G. T. Wang:
-  name      : G. T. Wang
+  name      : "G. T. Wang"
   url       : https://blog.gtwang.org/about/
   avatar    : https://blog.gtwang.org/wp-content/uploads/2015/03/gtwang-logo-blue-1024x1024.png
   bio       : '我是 G. T. Wang'
