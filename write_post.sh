@@ -7,8 +7,8 @@
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
-[[ -d _posts ]] || mkdir _posts/ && echo '/_posts does not exist.'
-[[ -d _posts ]] && cp -r _posts/* web/_posts/
+[[ -d _posts ]] || mkdir _posts/ && echo -e "/_posts does not exist.\nCreate empty _posts/"
+cp -r _posts/* web/_posts/
 
 
 # write new posts for every author
