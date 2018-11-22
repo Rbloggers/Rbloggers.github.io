@@ -15,8 +15,8 @@ with open(fp) as f:
 
 # Write Posts (one author) to 'web/_posts'
 yaml_aut = 'author: "' + new_post['author'] + '"'
-fb_title = ['']*len(new_post['id'])
-fb_link = ['']*len(new_post['id'])
+#fb_title = ['']*len(new_post['id'])
+#fb_link = ['']*len(new_post['id'])
 base = 'https://rbloggers.github.io/web/'
 for i in range(0, len(new_post['id'])):
     ## Get filename
@@ -35,10 +35,10 @@ for i in range(0, len(new_post['id'])):
     f.close()
 
     ## Write Facebook new post data    
-    with open('FB_title.txt', 'a') as fpt:
+    with open('FB_link.txt', 'a') as fpt:
         fpt.write(base + new_post['rblog_url'][i] + '\n')
-    with open('FB_link.txt', 'a') as fp:
-        fp.write(new_post['id'][i] + '\n')
+    with open('FB_title.txt', 'a') as fp:
+        fp.write(new_post['title'][i] + '\n')
     with open('FB_tags.txt', 'a') as fp:
         for k in new_post['tags'][i]:
             fp.write(str(k) + ',')
