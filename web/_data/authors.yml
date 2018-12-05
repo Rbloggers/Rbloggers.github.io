@@ -2,7 +2,7 @@ Yongfu Liao:
   name      : "Yongfu Liao"
   url       : https://liao961120.github.io
   avatar    : https://liao961120.github.io/assets/images/me-about.png
-  bio       : '<strong>R 部落客</strong>站長<br>興趣是 R Markdown。把 Travis-CI 當自己的第二台電腦在用。'
+  bio       : '我是 Yongfu Liao<br>興趣是<strong>R Markdown</strong> 。把 Travis-CI 當自己的第二台電腦在用。'
   email     : liao961120@gmail.com
   github    : liao961120
   facebook  : liao961120
@@ -21,6 +21,15 @@ G. T. Wang:
   url       : https://blog.gtwang.org/about/
   avatar    : https://blog.gtwang.org/wp-content/uploads/2015/03/gtwang-logo-blue-1024x1024.png
   bio       : '我是 G. T. Wang'
+  email     : empty@gmail.com
+  github    : empty
+  facebook  : empty
+
+Steve Chen:
+  name      : "Steve Chen"
+  url       : http://steve-chen.tw/?page_id=15
+  avatar    : /assets/images/default-avatar.jpeg
+  bio       : '我是 Steve Chen'
   email     : empty@gmail.com
   github    : empty
   facebook  : empty

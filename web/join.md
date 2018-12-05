@@ -2,7 +2,7 @@
 layout: join
 title: 加入我們
 comment: false
-author: ['Yongfu Liao','Alan Lee', 'G. T. Wang']
+author: ['Yongfu Liao','Alan Lee', 'G. T. Wang', 'Steve Chen']
 ---
 
 ## 動機
@@ -18,7 +18,8 @@ author: ['Yongfu Liao','Alan Lee', 'G. T. Wang']
 
     - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS feed：
         - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
-        - [WordPress 說明](https://en.support.wordpress.com/feeds/#your-feeds)
+        - [WordPress.com 說明](https://en.support.wordpress.com/feeds/#your-feeds)
+        - [WordPress.org 說明](https://codex.wordpress.org/WordPress_Feeds#Categories_and_Tags)
         - Jekyll 可參考[這篇文章](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)。
         - Hugo 也可用類似 Jekyll 的方式修改 [RSS 模板](https://gohugo.io/templates/rss/)
 
