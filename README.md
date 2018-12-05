@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Rbloggers/web.svg?branch=master)](https://travis-ci.org/Rbloggers/web)
+[![Build Status](https://travis-ci.org/Rbloggers/Rbloggers.github.io.svg?branch=dev)](https://travis-ci.org/Rbloggers/Rbloggers.github.io)
 
 # R 部落客
 
