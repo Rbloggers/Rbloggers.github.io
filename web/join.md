@@ -49,6 +49,4 @@ author: ['Yongfu Liao','Alan Lee', 'G. T. Wang', 'Steve Chen']
         ```
 1. 文章中的程式碼**不要使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
 
-### RSS 提交表單
-
-[Google 表單](http://bit.ly/AppRblog)
+### [RSS 提交表單](http://bit.ly/AppRblog)
