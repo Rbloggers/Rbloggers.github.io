@@ -15,7 +15,7 @@ with open(fp) as f:
 
 # Write Posts (one author) to 'web/_posts'
 yaml_aut = 'author: "' + new_post['author'] + '"'
-base = 'https://rbloggers.github.io/web/'
+base = 'https://rbloggers.github.io/'
 for i in range(0, len(new_post['id'])):
     ## Get filename
     filename = new_post['date'][i] + '-' + os.path.basename(new_post['rblog_url'][i])
