@@ -3,7 +3,7 @@
 # R 部落客
 
 ## 加入新成員
-1. 檢查 RSS Parser
+1. 檢查 RSS Parser (`authorlist.txt` + local Parse)
 1. `_data/authors.yml`
 1. `join.md` > `author: ['new name']`
 
