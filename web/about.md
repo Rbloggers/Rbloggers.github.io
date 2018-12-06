@@ -15,7 +15,7 @@ comment: false
 
 ## 運作
 
-**R部落客**透過部落格作者所提交的 RSS，每日自動抓取新文章(如果有的話)，收錄於 **R部落客**[文章](archive.html)，並轉發於臉書。希望透過這個方式，讓有志學習 R 語言的讀者有穩定的資訊來源，也讓在各處默默耕耘的「R部落客」能被更多人看見。
+**R部落客**透過部落格作者所提交的 RSS，每日自動抓取新文章(如果有的話)，收錄於 **R部落客**[文章](archive.html)，並轉發於[臉書](https://www.facebook.com/twRblogger/?modal=admin_todo_tour)。希望透過這個方式，讓有志學習 R 語言的讀者有穩定的資訊來源，也讓在各處默默耕耘的「R部落客」能被更多人看見。
 
 **R部落客**的[原始碼](https://github.com/Rbloggers)託管於 GitHub 上。
 
