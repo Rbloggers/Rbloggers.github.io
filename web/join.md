@@ -7,8 +7,9 @@ author: ['Yongfu Liao','Alan Lee', 'G. T. Wang', 'Steve Chen']
 
 ## 動機
 
-提交部落格 RSS 至 **[R部落客](./join.html)**，可讓每次發布的新文章儲存到這裡，並且轉載到臉書上，而讀者也可透過 **R部落客**文章中的原文連結找到作者的部落格。**R部落客**旨在集結散佈各處的臺灣 R 語言部落格寫手，一方面提供大眾一個持續更新的 R 語言資訊來源，另一方面也讓默默耕耘的「R部落客」能被更多人看見。
+**R部落客**旨在集結散佈臺灣各處的 R 語言部落格寫手，一方面提供大眾持續更新的 R 語言資訊，另一方面也讓默默耕耘的「R部落客」能被更多人看見。
 
+提交部落格的 RSS 至 **[R部落客](./join.html)**，可讓每次新發布的文章儲存到這裡，並轉載到[臉書](https://www.facebook.com/twRblogger)上。讀者更可透過 **R部落客**文章中的原文連結，認識到作者的部落格。
 
 ## RSS(Atom) 提交規定
 
@@ -16,12 +17,12 @@ author: ['Yongfu Liao','Alan Lee', 'G. T. Wang', 'Steve Chen']
 
 1. 所有文章**皆與 R 語言相關**
 
-    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS feed：
+    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS：
         - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
         - [WordPress.com 說明](https://en.support.wordpress.com/feeds/#your-feeds)
         - [WordPress.org 說明](https://codex.wordpress.org/WordPress_Feeds#Categories_and_Tags)
-        - Jekyll 可參考[這篇文章](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)。
-        - Hugo 也可用類似 Jekyll 的方式修改 [RSS 模板](https://gohugo.io/templates/rss/)
+        - Jekyll 部落格[自訂 RSS 模板](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)
+        - Hugo 也有類似 Jekyll 修改 [RSS 模板的功能](https://gohugo.io/templates/rss/)
 
 1. 文章需為**繁體中文**
 
@@ -47,3 +48,5 @@ author: ['Yongfu Liao','Alan Lee', 'G. T. Wang', 'Steve Chen']
         <description>{% raw %}{{ .Content | html }}{% endraw %}</description>
         ```
 1. 文章中的程式碼**不要使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
+
+### RSS 提交表單
