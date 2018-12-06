@@ -1,4 +1,4 @@
-<a href="https://travis-ci.org/Rbloggers/Rbloggers.github.io" target="_blank">![Build Status](https://travis-ci.org/Rbloggers/Rbloggers.github.io.svg?branch=dev)</a>
+[![Build Status](https://travis-ci.org/Rbloggers/Rbloggers.github.io.svg?branch=dev)](https://travis-ci.org/Rbloggers/Rbloggers.github.io)
 
 # R 部落客
 
