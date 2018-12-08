@@ -1,40 +1,50 @@
-R資料匯入與匯出
-r ? <- $ () [] {} [[ @  :: 常用特殊運算子 (operators)
+建立 GIF 動畫檔案 animation 套件
+圖例中顯示點線混合符號 legend
+函數原始碼 source code
+2017 R TAIWAN 研討會
+R等差數列(前後二個元素相減)與條件式計算
+主題式地圖(Thematic map) - 政府開放資料為例
+經營管理講座 - Big Data Application
 r quantmod 套件下載財金資料與錯誤解決方法-Errors Downloading Stock Price Data from Yahoo Finance
 中文網頁表格擷取,亂碼處理
-R等差數列(前後二個元素相減)與條件式計算
-建立 GIF 動畫檔案 animation 套件
-矩陣的條件式篩選
-2017 R TAIWAN 研討會
-網路抓取 R CRAN 套件清單, 使用 ggplot2 套件繪圖, 建立第2個y軸座標.
-3D繪圖
-R軟體與Shiny Web應用程式設計
-函數原始碼 source code
-個人簡介(About)
-RStudio 錯誤訊息 Error: invalid multibyte character in parser at line 1
-R軟體教學影片
-2018人工智慧與資料科學應用研討會
-R與2018年狗年行大運 ^_^
-圖例中顯示點線混合符號 legend
 機率分配查表與 pnorm, qnorm應用
-主題式地圖(Thematic map) - 政府開放資料為例
 R與2017年金雞報喜 ^_^
-R讀取中文檔案產生亂碼等錯誤問題
-R程式除錯與效能提升設計
+R與2018年狗年行大運 ^_^
+個人簡介(About)
 by + scale 資料物件轉換為資料框並與原始資料合併
+r ? <- $ () [] {} [[ @  :: 常用特殊運算子 (operators)
+R讀取中文檔案產生亂碼等錯誤問題
 蒙地卡羅法估計圓周率 (Monte Carlo Estimation of pi)
-jsonlite：R 的 JSON 格式資料處理套件
+RStudio 錯誤訊息 Error: invalid multibyte character in parser at line 1
+3D繪圖
+網路抓取 R CRAN 套件清單, 使用 ggplot2 套件繪圖, 建立第2個y軸座標.
+R軟體教學影片
+R資料匯入與匯出
+R軟體與Shiny Web應用程式設計
+2018人工智慧與資料科學應用研討會
+R程式除錯與效能提升設計
 RHadoop 以 MapReduce 實作 K-Means 分群演算法範例
-使用 R 與 Hadoop Streaming API 實作 MapReduce 字數計算 Word Count 範例教學
+jsonlite：R 的 JSON 格式資料處理套件
 R 大資料分析實例：12 GB 美國飛機航班延誤紀錄
+使用 R 與 Hadoop MapReduce 分析 Stack Exchange Data Dump 資料
+RHadoop 計算環境架設教學與使用範例程式碼
+R 資料輸入與輸出
+使用 R 與 Hadoop Streaming API 實作 MapReduce 字數計算 Word Count 範例教學
 R 的 parallel 平行計算套件使用教學與範例
+Red Hat Enterprise Linux 7.3 編譯與安裝 R 語言執行環境教學
 R 讀取與產生 XML 格式檔案教學
 RSelenium：R 使用 Selenium 操控瀏覽器下載網頁資料
-RHadoop 計算環境架設教學與使用範例程式碼
-Red Hat Enterprise Linux 7.3 編譯與安裝 R 語言執行環境教學
 R 的 rio 套件：匯入與匯出 Excel、SAS、SPSS、CSV、JSON、XML 等檔案
-使用 R 與 Hadoop MapReduce 分析 Stack Exchange Data Dump 資料
-R 資料輸入與輸出
+為什麼我們看不懂別人寫的 R 程式？
+R Windows 版 + ITRI 文字語音服務: Text to Speech
+R + sparkR : Windows 7 安裝筆記
+R軟體中文數字轉換
+R軟體 svSocket Server + PHP Socket Client
+R 軟體 sqldf 套件：INSERT, UPDATE, CREATE TABLE AS SELECT
+R 軟體: 製作 gunrock 圖(graph)函數庫測試套件 Rgunrock
+R: tryCatch 簡單範例
+R 迴圈 List, Vector 記憶體預分配的考量
+關於「R軟體：應用統計方法」時間數列程式錯誤
 jieba 自訂詞庫斷詞
 Text Mining 前處理：中文、R 與 quanteda
 我的 R 學習歷程
