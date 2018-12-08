@@ -5,7 +5,7 @@ comment: false
 ---
 
 
-## 啟發 <img src="/assets/images/logo/logo.png" class="ori" style="width:23%;float: right;"/>
+## 啟發 <img src="/assets/images/logo/logo.png" class="ori" style="width:24%;float: right;"/>
 
 **R部落客**的精神源自 R 語言部落格平台 [R-bloggers](https://www.r-bloggers.com/)。基本上，**R部落客**可視作是 **R-bloggers** 的臺灣地區版本。然而成立**R部落客**目的並非為了與 **R-bloggers** 競爭，**R-bloogers** 毫無疑問是最好的 R 語言資訊來源之一。
 
@@ -17,12 +17,24 @@ comment: false
 
 **R部落客**透過部落格作者所提交的 RSS，每日自動抓取新文章(如果有的話)，收錄於 **R部落客**[文章](archive.html)，並轉發於[臉書](https://www.facebook.com/twRblogger/?modal=admin_todo_tour)。希望透過這個方式，讓有志學習 R 語言的讀者有穩定的資訊來源，也讓在各處默默耕耘的「R部落客」能被更多人看見。
 
-**R部落客**的[原始碼](https://github.com/Rbloggers)託管於 GitHub 上。
-
 
 ## 特別感謝
 
-[賴璿中](https://www.facebook.com/rickerspace)：**R部落客** Logo 設計
+[賴璿中](https://www.facebook.com/rickerspace) | Logo 設計
+
+
+## 著作權
+
+### 文章
+
+**R部落客**的文章為**原作者**所有，本站僅轉載與收錄。
+
+### 網站
+
+**R部落客**網站模板使用[TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme)，採 MIT 授權條款。[原始碼](https://github.com/Rbloggers)託管於 GitHub 。
+
+模板以外部份之智慧財產，為**創作者**所有：  
+賴璿中 | [R部落客 Logo](https://rbloggers.github.io/assets/images/logo/logo.png)
 
 
 [^chinese]: 例如，PTT文本探勘、R Markdown 輸出中文 PDF、ggplot 圖上的中文亂碼處理等。
