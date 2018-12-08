@@ -43,7 +43,8 @@ comment: true
 
 ### 原始碼
 
-**R部落客**網站模板使用[TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme)，採 MIT 授權條款。網站內部的運作[原始碼](https://github.com/Rbloggers)託管於 GitHub 。
+**R部落客**網站模板使用[TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme)，採 MIT 授權條款。  
+網站內部運作的原始碼，包含 [RSS 資訊擷取](https://github.com/Rbloggers/RSSparser)、[靜態網頁](https://github.com/Rbloggers/Rbloggers.github.io)及[臉書自動發文](https://github.com/Rbloggers/facebook-publish)皆託管於 GitHub 。
 
 
 
