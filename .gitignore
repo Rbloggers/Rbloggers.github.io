@@ -7,3 +7,5 @@
 /.vscode
 /web/_posts/*
 /web/authors/*
+/web/_drafts/*
+/test/web/*
