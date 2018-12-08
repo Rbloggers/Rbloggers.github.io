@@ -117,7 +117,7 @@ sharing:
 comments:
   provider: # false (default), "disqus", "gitalk", "custom"
   disqus:
-    shortname: # the Disqus shortname for the site
+    shortname: rblogger # the Disqus shortname for the site
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
