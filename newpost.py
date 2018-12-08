@@ -22,7 +22,10 @@ for i in range(0, len(new_post['id'])):
     
     ## Write New posts
     yaml_title = 'title: "' + new_post['title'][i] + '"'
-    yaml_tags = 'tags: ' + str(new_post['tags'][i])
+    yaml_tags = 'tags: '
+    ### Deal with empty tag
+    if len(new_post['tags'][i][0]) != 0:
+        yaml_tags += str(new_post['tags'][i])
     yaml_link = 'link: "' + new_post['id'][i] + '"'
     content = new_post['content'][i].replace('。', '。<!--more-->', 1) # change 
     
