@@ -2,7 +2,7 @@
 
 1. RSSparser
     - INTERRUPT
-        - `dowload_oldjson.sh`: line 15 `> "$authorname/old.json"`
+        - `dowload_oldjson.sh` line 15 `> "$authorname/old.json"`
     - Normal
         - Do nothing
     2. `python3 main.py`
