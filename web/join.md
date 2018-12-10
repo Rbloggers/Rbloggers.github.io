@@ -17,7 +17,7 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
 
 1. 所有文章**皆與 R 語言相關**
 
-    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS：
+    - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS。下方提供各部落格平台的 RSS 網址格式或設定說明：
         - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
         - [WordPress.com 說明](https://en.support.wordpress.com/feeds/#your-feeds)
         - [WordPress.org 說明](https://codex.wordpress.org/WordPress_Feeds#Categories_and_Tags)
