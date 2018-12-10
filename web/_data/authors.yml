@@ -8,13 +8,12 @@ Yongfu Liao:
   facebook  : liao961120
 
 Alan Lee:
-  name      : "Alan Lee"
+  name      : "RWEPA"
   url       : http://rwepa.blogspot.com/
-  avatar    : /assets/images/default-avatar.jpeg
-  bio       : '我是 Alan Lee'
-  email     : empty@gmail.com
-  github    : empty
-  facebook  : empty
+  avatar    : https://raw.githubusercontent.com/rwepa/images/master/rwepa-logo.png
+  bio       : '我是 MING-CHANG LEE,  興趣是 R/Python程式設計,資料視覺化與企業應用。'
+  email     : alan9956@gmail.com
+
   
 G. T. Wang:
   name      : "G. T. Wang"
@@ -35,6 +34,7 @@ Steve Chen:
   facebook  : empty
 
   
+# /assets/images/default-avatar.jpeg
 #Tian Qi:
 #  name      : Tian Qi
 #  url       : https://tianqi.name
