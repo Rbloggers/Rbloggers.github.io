@@ -22,7 +22,7 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
         - [WordPress.com 說明](https://en.support.wordpress.com/feeds/#your-feeds)
         - [WordPress.org 說明](https://codex.wordpress.org/WordPress_Feeds#Categories_and_Tags)
         - Jekyll 部落格[自訂 RSS 模板](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)
-        - Hugo 也有類似 Jekyll 修改 [RSS 模板的功能](https://gohugo.io/templates/rss/)
+        - Hugo 也有類似 Jekyll 修改 [RSS 模板的功能](https://gohugo.io/templates/rss/)。[此篇文章](https://randomgeekery.org/2017/09/15/full-content-hugo-feeds/)說明如何自訂 RSS 模板。
 
 1. 文章需為**繁體中文**
 
