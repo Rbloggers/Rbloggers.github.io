@@ -22,7 +22,7 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
         - [WordPress.com 說明](https://en.support.wordpress.com/feeds/#your-feeds)
         - [WordPress.org 說明](https://codex.wordpress.org/WordPress_Feeds#Categories_and_Tags)
         - Jekyll 部落格[自訂 RSS 模板](https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/)
-        - Hugo 也有類似 Jekyll 修改 [RSS 模板的功能](https://gohugo.io/templates/rss/)。
+        - Hugo 也有類似 Jekyll 修改 RSS 模板的功能，關於如何設定，詳見[這篇文章](https://liao961120.github.io/2018/12/13/hugo_rss.html)
 
 1. 文章需為**繁體中文**
 
@@ -36,18 +36,9 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
 
     - WordPress 可在後台設定
 
-    - Hugo 預設為摘要，可依據[此篇文章](https://randomgeekery.org/2017/09/15/full-content-hugo-feeds/)修改 [RSS 模板](https://gohugo.io/templates/rss/#the-embedded-rss-xml)：
+    - Hugo 預設為摘要，可依據[這篇文章](https://liao961120.github.io/2018/12/13/hugo_rss.html)修改 RSS 模板：
         
-        ```html
-        <description>{% raw %}{{ .Summary | html }}{% endraw %}</description>
-        ```
-        
-        改成
-
-        ```html
-        <description>{% raw %}{{ .Content | html }}{% endraw %}</description>
-        ```
-1. 文章中的程式碼**不要使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
+1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
 
 ### 提交 RSS
 
