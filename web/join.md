@@ -13,6 +13,9 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
 
 ## RSS(Atom) 提交規定
 
+您可以透過 [Google 表單](http://bit.ly/AppRblog)將部落格的 RSS 提供給 **R部落客**。提交成功後，您便成為 **R部落客**的一員。在填寫表單前，請**務必先閱讀下方規定**。
+
+
 ### 必要規定
 
 1. 所有文章**皆與 R 語言相關**
@@ -36,10 +39,6 @@ author: ['Yongfu Liao','Steve Chen', 'Alan Lee', 'G. T. Wang']
 
     - WordPress 可在後台設定
 
-    - Hugo 預設為摘要，可依據[這篇文章](https://liao961120.github.io/2018/12/13/hugo_rss.html)修改 RSS 模板：
+    - Hugo 預設為摘要，可依據[這篇文章](https://liao961120.github.io/2018/12/13/hugo_rss.html)修改 RSS 模板
         
 1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
-
-### 提交 RSS
-
-[Google 表單](http://bit.ly/AppRblog)
