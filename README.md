@@ -13,7 +13,7 @@
     - New field (match 2nd column in `RSSparser/authorlist.txt`)
 1. `join.md` > `author: ['<new field name of _data/authors.yml>']`
 
-### [測試](./test/README.md)
+### [測試](./test)
 
 
 ## 專案運作流程
