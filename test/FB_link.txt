@@ -120,3 +120,8 @@ https://rbloggers.github.io/2017/08/21/yjtseng-jiebar.html
 https://rbloggers.github.io/2018/03/27/yjtseng-dotdotdot.html
 https://rbloggers.github.io/2017/08/17/yjtseng-rblogdown.html
 https://rbloggers.github.io/2018/12/14/yjtseng-jupyternotebook.html
+https://rbloggers.github.io/2018/11/08/chishenh-create_website.html
+https://rbloggers.github.io/2018/11/29/chishenh-dashboard.html
+https://rbloggers.github.io/2018/12/06/chishenh-dashboard.html
+https://rbloggers.github.io/2018/11/14/chishenh-shiny-dynamic-ui.html
+https://rbloggers.github.io/2018/11/15/chishenh-r-example-for-analytical-method-validation.html

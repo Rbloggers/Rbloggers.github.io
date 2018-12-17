@@ -120,3 +120,8 @@ R的arguments出現三個點是...?
 R的arguments出現三個點是...?
 開始用blogdown寫blog啦
 在Ubuntu伺服器架設Jupyter Notebook
+利用 R blogdown，Hugo 及 Github 建立個人部落格網站
+R 互動式儀表板 flexdashboard (一) 佈局介紹
+R 互動式儀表板 flexdashboard (二) 元件
+Shiny 動態選項
+R Example for Analytical Method Validation
