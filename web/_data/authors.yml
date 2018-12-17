@@ -19,21 +19,30 @@ G. T. Wang:
   name      : "G. T. Wang"
   url       : https://blog.gtwang.org/about/
   avatar    : https://blog.gtwang.org/wp-content/uploads/2015/03/gtwang-logo-blue-1024x1024.png
-  bio       : '我是 G. T. Wang'
-  email     : empty@gmail.com
-  github    : empty
-  facebook  : empty
+  bio       : 
+  email     : 
+  github    : 
+  facebook  : 
 
 Steve Chen:
   name      : "Steve Chen"
   url       : http://steve-chen.tw/?page_id=15
   avatar    : /assets/images/default-avatar.jpeg
-  bio       : '我是 Steve Chen'
-  email     : empty@gmail.com
-  github    : empty
-  facebook  : empty
+  bio       : 
+  email     : 
+  github    : 
+  facebook  : 
 
+yjtseng:
+  name      : "曾意儒"
+  url       : https://yjtseng.info
+  avatar    : https://yjtseng.info/img/Photo2015.jpg
+  bio       : '長庚資管老師，教授R、數據分析等課程，研究領域為醫學資訊'
+  email     : yjtseng@mail.cgu.edu.tw
+  github    : yijutseng
+  linkedin  : yijutseng
   
+    
 # /assets/images/default-avatar.jpeg
 #Tian Qi:
 #  name      : Tian Qi

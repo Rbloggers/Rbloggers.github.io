@@ -9,6 +9,7 @@
     2. check JSON with Firefox
 
 1. Rbloggers.github.io/test
+    1. `cd test`
     1. Manual move dowloaded author folders to `authors/`
     1. `python3 newpost.py <author_name>`
     1. Check posts in `web/_posts`

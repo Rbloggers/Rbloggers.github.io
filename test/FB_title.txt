@@ -108,3 +108,15 @@ R軟體 svSocket Server + PHP Socket Client
 R: tryCatch 簡單範例
 為什麼我們看不懂別人寫的 R 程式？
 R 軟體: 製作 gunrock 圖(graph)函數庫測試套件 Rgunrock
+在Ubuntu伺服器架設Jupyter Notebook
+用blogdown建立個人網頁
+在R中使用結巴分詞
+開始用blogdown寫blog啦
+正規表示式Regular Expression in R
+R的arguments出現三個點是...?
+用blogdown建立個人網頁
+正規表示式Regular Expression in R
+在R中使用結巴分詞
+R的arguments出現三個點是...?
+開始用blogdown寫blog啦
+在Ubuntu伺服器架設Jupyter Notebook
