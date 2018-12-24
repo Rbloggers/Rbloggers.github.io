@@ -45,6 +45,7 @@ comment: true
 
 賴璿中 \| [R部落客 Logo](https://rbloggers.github.io/assets/images/logo/logo.png)
 
+danfador \| [粉專封面照片](https://pixabay.com/photo-190055/)
 
 ### 原始碼
 

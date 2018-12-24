@@ -11,9 +11,8 @@ tar -zxf old.tar.gz
 [[ -d web/_posts ]] || mkdir web/_posts
 [[ -d _posts ]] || mkdir _posts/ && echo -e "/_posts does not exist.\nCreate empty _posts/"
 #### Interruption: don't copy old.tar.gz to _posts
-#rm -r _posts/* # used in interruption
-cp -r _posts/* web/_posts/
-
+rm -r _posts/* # used in interruption
+#cp -r _posts/* web/_posts/
 
 
 
@@ -24,8 +23,8 @@ while read p; do
     # python write post to web/_posts
 done < autls
 
-# Check whether there are new posts
 
+# Check whether there are new posts
 ls _posts/ > old.txt
 ls web/_posts/ > new.txt
 ln_old=$(cat old.txt | wc -l)
@@ -39,7 +38,6 @@ elif [[ $ln_new -le $ln_old ]]; then
     echo "More old posts or post name changed. Need inspection"
     exit 100
 fi
-
 
 
 # Archive All posts
