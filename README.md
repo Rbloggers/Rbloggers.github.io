@@ -17,7 +17,7 @@
 
 ### 清除舊文章 (`old.tar.gz`)
 
-- comment out 14 in `write_post.sh`
+- comment out 14 in `write_post.sh`:
     - `cp -r _posts/* web/_posts/`
 
 
