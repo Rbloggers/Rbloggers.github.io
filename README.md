@@ -15,11 +15,14 @@
 
 ### [測試](./test)
 
-### 清除舊文章 (`old.tar.gz`)
+### 清除舊文章 (`old.tar.gz`): Rbloggers.github.io
 
 - comment out 14 in `write_post.sh`:
     - `cp -r _posts/* web/_posts/`
 
+### 清除臉書記錄: facebook-publish
+
+`get_info.sh`: line 25
 
 
 ## 專案運作流程
