@@ -1,14 +1,19 @@
 #!/bin/bash
 
+
+
 # Get Old Posts
 curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/web/posts/posts.tar.gz" > old.tar.gz
 echo -e "Curl old.tar.gz\n"
 tar -zxf old.tar.gz
 
 ## Copy old posts to web/
-[[ -d web/_posts ]] || mkdir web/_posts
-[[ -d _posts ]] || mkdir _posts/ && echo -e "/_posts does not exist.\nCreate empty _posts/"
-cp -r _posts/* web/_posts/
+#### Interruption: don't copy old.tar.gz to _posts
+#[[ -d web/_posts ]] || mkdir web/_posts
+#[[ -d _posts ]] || mkdir _posts/ && echo -e "/_posts does not exist.\nCreate empty _posts/"
+#cp -r _posts/* web/_posts/
+
+
 
 
 # write new posts for every author

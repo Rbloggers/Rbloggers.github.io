@@ -2,7 +2,7 @@
 layout: join
 title: 加入我們
 comment: false
-author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'chishenh', 'Steve Chen', 'G. T. Wang']
+author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'chishenh'] #'Steve Chen', 'G. T. Wang'
 ---
 
 ## 動機
