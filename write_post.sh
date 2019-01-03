@@ -9,9 +9,9 @@ tar -zxf old.tar.gz
 
 ## Copy old posts to web/
 [[ -d web/_posts ]] || mkdir web/_posts
-[[ -d _posts ]] || mkdir _posts/ && echo -e "/_posts does not exist.\nCreate empty _posts/"
+[[ -d _posts ]] || mkdir _posts/ ; echo -e "/_posts does not exist.\nCreate empty _posts/"
 #### Interruption: don't copy old.tar.gz to _posts
-rm -r _posts/*  # used in interruption to bypass checking
+#rm -r _posts/*  # used in interruption to bypass checking
 cp -r _posts/* web/_posts/
 
 

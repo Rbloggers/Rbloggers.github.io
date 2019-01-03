@@ -15,13 +15,12 @@ echo -e "Curl authorlist.txt\n"
 cd authors
 while read p; do
     dirname=$(echo "$p" | cut -d ',' -f 1)
-    
     # Check if dir exist
     [[ -d $dirname ]] && rm -r $dirname
     mkdir $dirname
     # Download old data
-    curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/RSSparser/gh-pages/$dirname/new.json" > "$dirname/new.json"
-    echo -e "Curl $dirname/new.json\n"
+    #curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/RSSparser/gh-pages/$dirname/new.json" > "$dirname/new.json"
+    #echo -e "Curl $dirname/new.json\n"
 
     # Dowload new_post data
     curl --silent --show-error --fail "https://raw.githubusercontent.com/Rbloggers/RSSparser/gh-pages/$dirname/new_post.json" > "$dirname/new_post.json"
