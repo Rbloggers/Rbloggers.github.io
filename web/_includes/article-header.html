@@ -50,20 +50,20 @@
 
 <script>
 // Add Id to h1, h2, h3 to allow TOC
-$(document).ready(function() {
-    $("h1").each(function() {
-        var hyphenated = $(this).text().replace(/\s/g,'-');
-        $(this).attr('id',hyphenated);
+jQuery(document).ready(function() {
+  jQuery("h1").each(function() {
+        var hyphenated = jQuery(this).text().replace(/\s/g,'-');
+        jQuery(this).attr('id',hyphenated);
     }
     );
-    $("h2").each(function() {
-        var hyphenated = $(this).text().replace(/\s/g,'-');
-        $(this).attr('id',hyphenated);
+    jQuery("h2").each(function() {
+        var hyphenated = jQuery(this).text().replace(/\s/g,'-');
+        jQuery(this).attr('id',hyphenated);
     }
     );
-    $("h3").each(function() {
-        var hyphenated = $(this).text().replace(/\s/g,'-');
-        $(this).attr('id',hyphenated);
+    jQuery("h3").each(function() {
+        var hyphenated = jQuery(this).text().replace(/\s/g,'-');
+        jQuery(this).attr('id',hyphenated);
     }
     );
 })();
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 <script>
 // Right align blockquote author (last line)
-$(document).ready(function() {
+jQuery(document).ready(function() {
   var quotes = document.getElementsByTagName('blockquote'), i, quote;
   for (i = 0; i < quotes.length; i++) {
     quote = quotes[i];
