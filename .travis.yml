@@ -12,6 +12,10 @@ script:
   - bash getjson.sh  
   - bash write_post.sh
 
+after_success:
+  - gem install travis -v 1.8.9 --no-rdoc --no-ri
+  #- bash trigger-FB-publish.sh
+
 # deploy
 deploy:
   - provider: pages    # Deploy master to branch posts
