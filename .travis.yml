@@ -14,7 +14,7 @@ script:
 
 after_success:
   - gem install travis -v 1.8.9 --no-rdoc --no-ri
-  #- bash trigger-FB-publish.sh
+  - bash trigger-FB-publish.sh
 
 # deploy
 deploy:
