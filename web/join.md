@@ -15,6 +15,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 
 您可以透過 [Google 表單](http://bit.ly/AppRblog)將部落格的 RSS 提供給 **R部落客**。提交成功後，您便成為 **R部落客**的一員。在填寫表單前，請**務必先閱讀下方規定**。
 
+若您沒有長期經營部落格，可閱讀下方[單篇文章提交](#單篇文章提交)，直接提交 R 語言相關文章。
 
 ### 必要規定
 
@@ -44,6 +45,13 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
         
 1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
 
-### 問題協助
 
-在提交 RSS 的過程中，如遇到任何問題，歡迎在下方留言或是透過 [email](mailto:liao961120@gmail.com) 聯絡我們。
+## 單篇文章提交
+
+對於沒有長期經營部落格，但仍想將文章發表在這裡的部落客，**R部落客** 提供提交單篇文章的機制。  
+更多資訊，詳見 <https://Rbloggers.github.io/subblog>
+
+
+## 問題協助
+
+在提交的過程中，如遇到任何問題，歡迎在下方留言或是透過 [email](mailto:liao961120@gmail.com) 聯絡我們。
