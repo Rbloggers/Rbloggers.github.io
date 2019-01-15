@@ -19,6 +19,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 ### 必要規定
 
 1. 所有文章**皆與 R 語言相關**
+    - 若您使用 [medium](https://medium.com/) 撰寫部落格，可直接由下方表單提交網址。目前我們正在開發 **medium** 的 parser。
 
     - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS。下方提供各部落格平台的 RSS 網址格式或設定說明：
         - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
