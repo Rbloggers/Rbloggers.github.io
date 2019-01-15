@@ -1,7 +1,7 @@
 ---
 layout: join
 title: 加入我們
-comment: false
+comment: true
 author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 ---
 
@@ -43,3 +43,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
     - Hugo 預設為摘要，可依據[這篇文章](https://liao961120.github.io/2018/12/13/hugo_rss.html)修改 RSS 模板
         
 1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
+
+### 問題協助
+
+在提交 RSS 的過程中，如遇到任何問題，歡迎在下方留言或是透過 [email](mailto:liao961120@gmail.com) 聯絡我們。
