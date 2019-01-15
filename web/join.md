@@ -49,7 +49,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 ## 單篇文章提交
 
 對於沒有長期經營部落格，但仍想將文章發表在這裡的部落客，**R部落客** 提供提交單篇文章的機制。  
-更多資訊，詳見 <https://Rbloggers.github.io/SubBlog>
+更多資訊，詳見 <https://Rbloggers.github.io/SubBlog/submit.html>
 
 
 ## 問題協助
