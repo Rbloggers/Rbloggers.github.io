@@ -2,6 +2,7 @@
 layout: join
 title: 加入我們
 comment: true
+key: join-Rbloggers
 author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 ---
 
@@ -15,12 +16,12 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 
 您可以透過 [Google 表單](http://bit.ly/AppRblog)將部落格的 RSS 提供給 **R部落客**。提交成功後，您便成為 **R部落客**的一員。在填寫表單前，請**務必先閱讀下方規定**。
 
-若您沒有長期經營部落格，可閱讀下方[單篇文章提交](#單篇文章提交)，直接提交 R 語言相關文章。
+若您沒有長期經營部落格，可閱讀下方[單篇文章發表](#單篇文章發表)，直接提交 R 語言相關文章。
 
 ### 必要規定
 
 1. 所有文章**皆與 R 語言相關**
-    - 若您使用 [medium](https://medium.com/) 撰寫部落格，可直接由下方表單提交 RSS 網址 (`https://medium.com/feed/@<userid>`)。目前我們正在開發 **medium** 的 parser。
+    - 若您使用 [medium](https://medium.com/) 撰寫部落格，可直接由下方表單提交 RSS 網址 (`https://medium.com/feed/@<userid>`)。目前我們正在建置 **medium** 的 RSS parser。
 
     - 若部落格有 R 以外的文章，可以提交特定 tag 或是 category 的 RSS。下方提供各部落格平台的 RSS 網址格式或設定說明：
         - [bloggers 說明](https://support.google.com/blogger/answer/97933?topic=12501)
@@ -46,10 +47,10 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
 
 
-## 單篇文章提交
+## 單篇文章發表
 
-對於沒有長期經營部落格，但仍想將文章發表在這裡的部落客，**R部落客** 提供提交單篇文章的機制。  
-更多資訊，詳見 <https://Rbloggers.github.io/SubBlog/submit.html>
+對於未長期經營部落格，但想在此發表文章的部落客，**R部落客** 提供**協作**的機制。  
+更多資訊，詳見 <https://Rbloggers.github.io/blog/submit.html>
 
 
 ## 問題協助
