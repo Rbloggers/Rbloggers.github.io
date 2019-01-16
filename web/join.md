@@ -50,7 +50,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 ## 單篇文章發表
 
 對於未長期經營部落格，但想在此發表文章的部落客，**R部落客** 提供**協作**的機制。  
-更多資訊，詳見 <https://Rbloggers.github.io/blog/submit.html>
+更多資訊，詳見 <https://rbloggers.netlify.com/submit.html>
 
 
 ## 問題協助
