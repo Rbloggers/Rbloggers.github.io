@@ -47,9 +47,9 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 1. 文章中的程式碼**不使用 [GitHub gists](https://help.github.com/articles/about-gists/)**，因為基於安全性問題，任何 `<script>` tag 都會被濾掉。
 
 
-## 單篇文章發表
+## 沒有部落格？
 
-對於未長期經營部落格，但想在此發表文章的部落客，詳見 [R部落客 · 協作](https://corbloggers.netlify.com)。
+對於未經營部落格，但想在此發表文章的部落客，可參考 [協作閣](https://collabin.netlify.com)。
 
 
 ## 問題協助
