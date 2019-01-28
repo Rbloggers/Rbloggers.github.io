@@ -14,17 +14,17 @@ $(function() {
 
   // Case 1: match "./xxxx" or "xxxx" (relative path)
   var regex_relPath = /^(\.\/){0,1}([^\/\s#]\S+)$/;
-  $('a').each(function() {
+  $('.article__content').find('a').each(function() {
     var href = $(this).attr('href');
-    if (regex_relPath.test(href) && !regex_http.test(href)) {
+    if (href !== null && regex_relPath.test(href) && !regex_http.test(href)) {
         // Capture second matched group
         var clean_url = href.match(regex_relPath)[2]
         $(this).attr('href', posturl + clean_url);
     }
   });
-  $('img').each(function() {
+  $('.article__content').find('img').each(function() {
     var src = $(this).attr('src');
-    if (regex_relPath.test(src) && !regex_http.test(href)) {
+    if (src !== null && regex_relPath.test(src) && !regex_http.test(src)) {
         // Capture second matched group
         var clean_url = src.match(regex_relPath)[2]
         $(this).attr('src', posturl + clean_url);
@@ -33,17 +33,17 @@ $(function() {
   
   // Case 2: match "/xxx" (absolute path)
   var regex_absPath = /^\/(\S+)$/;
-  $('a').each(function() {
+  $('.article__content').find('a').each(function() {
     var href = $(this).attr('href');
-    if (regex_absPath.test(href)) {
+    if (href !== null && regex_absPath.test(href)) {
         // Capture second matched group
         var clean_url = href.match(regex_absPath)[1]
         $(this).attr('href', baseurl + clean_url);
     }
   });
-  $('img').each(function() {
+  $('.article__content').find('img').each(function() {
     var src = $(this).attr('src');
-    if (regex_absPath.test(src)) {
+    if (src !== null && regex_absPath.test(src)) {
         // Capture second matched group
         var clean_url = src.match(regex_absPath)[1]
         $(this).attr('src', baseurl + clean_url);
