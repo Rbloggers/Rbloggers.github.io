@@ -42,7 +42,12 @@ yjtseng:
   github    : yijutseng
   linkedin  : yijutseng
   
-
+collabin:
+  name      : "協作閣"
+  url       : https://collabin.netlify.com
+  avatar    : https://collabin.netlify.com/images/cabin-512.png
+  bio       : '提供任何有心撰文的筆者，一個能發表並長期保存文章的平台。'
+  
 # /assets/images/default-avatar.jpeg
 
 #Tian Qi:
