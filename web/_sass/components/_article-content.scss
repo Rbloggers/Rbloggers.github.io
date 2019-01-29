@@ -233,9 +233,17 @@
       font-weight: map-get($base, font-weight-bold);
     }
   }
+  div.figure > p.caption { 
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+    color: rgb(73, 73, 73);
+    margin-top: -8px;
+  }
 }
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 // Custom for join.html
 .article__content2 {
