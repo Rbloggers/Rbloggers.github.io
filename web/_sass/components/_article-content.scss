@@ -233,6 +233,7 @@
       font-weight: map-get($base, font-weight-bold);
     }
   }
+  // Tweak Figure Caption Appearance
   div.figure > p.caption { 
     font-size: 0.85em;
     letter-spacing: 0.5px;

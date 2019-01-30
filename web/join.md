@@ -16,7 +16,9 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 
 您可以透過 [Google 表單](http://bit.ly/AppRblog)將部落格的 RSS 提供給 **R部落客**。提交成功後，您便成為 **R部落客**的一員。在填寫表單前，請**務必先閱讀下方規定**。
 
-若您沒有長期經營部落格，可閱讀下方[單篇文章發表](#單篇文章發表)，直接提交 R 語言相關文章。
+若您沒有長期經營部落格，可閱讀下方[沒有部落格？](#沒有部落格)。
+
+
 
 ### 必要規定
 
@@ -49,7 +51,7 @@ author: ['Yongfu Liao',  'Alan Lee', 'yjtseng', 'Steve Chen'] #, 'G. T. Wang'
 
 ## 沒有部落格？
 
-對於未經營部落格，但想在此發表文章的部落客，可參考 [協作閣](https://collabin.netlify.com)。
+對於未經營部落格，但想在此發表文章的部落客，可參考 [協作閣](https://collabin.netlify.com/info/about)。
 
 
 ## 問題協助
