@@ -1,0 +1,6 @@
+R的arguments出現三個點是...?
+正規表示式Regular Expression in R
+在Ubuntu伺服器架設Jupyter Notebook
+用blogdown建立個人網頁
+開始用blogdown寫blog啦
+在R中使用結巴分詞
