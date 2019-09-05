@@ -1,6 +1,0 @@
-https://rbloggers.github.io/2018/03/27/yjtseng-dotdotdot.html
-https://rbloggers.github.io/2018/03/26/yjtseng-regexpr.html
-https://rbloggers.github.io/2018/12/14/yjtseng-jupyternotebook.html
-https://rbloggers.github.io/2017/08/21/yjtseng-website.html
-https://rbloggers.github.io/2017/08/17/yjtseng-rblogdown.html
-https://rbloggers.github.io/2017/08/21/yjtseng-jiebar.html
