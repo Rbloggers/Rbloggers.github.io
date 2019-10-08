@@ -1,1 +1,0 @@
-python,SQL,VirtualBox,Windows 10,
