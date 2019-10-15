@@ -1,1 +1,1 @@
-chord,graphics,Rtools,visualization,web,
+data science,training,tutorials,
