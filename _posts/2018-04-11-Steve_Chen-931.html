@@ -1,0 +1,23 @@
+---
+author: "Steve Chen"
+title: "關於「R軟體：應用統計方法」時間數列程式錯誤"
+tags: 
+link: "https://steve-chen.tw/?p=931"
+highlight: true
+---
+
+<p>我這幾天正在修改我那本「R軟體：應用統計方法」的書</p>
+<p>由於當初出書時的 R 版本是 2.10.1，目前已經是 3.4.4，某些 packages 已經消失在 CRAN，但最大的差異是在時間數列那一章，由於 R 軟體核心的 arima 函數有部分改寫，導致有用到 TSA 套件的「轉換函數模式」與「介入事件模型」的某些程式會出錯。<!--more-->這裡提供讀者們一個應急的解決方法。<br />
+<span id="more-931"></span></p>
+<p>如果大家有急用到上述兩個模型的話，錯誤是因為 arima 核心函數前後版本修改的算法不同，通常會發生自己產生的落後期數列開頭的 NA，例如 Zlag3 = zlag(Z,3) 這個數列，會在最前面產生 3 個 NA 值，導致出錯。</p>
+<p>此時，可以用類似 imputeTS 套件，把 NA 遺失值估計出來。</p>
+<p>例如書上 <strong>18.4.2 小節</strong>(程式範例 <strong>18-3</strong>)：<br />
+&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;</p>
+<p>library(TSA)<br />
+gasRate3 = zlag(gasRate,3) # 落後 3 期，最前面會有 3 個 NA</p>
+<p><span style="color: #ff0000;">library(imputeTS)</span><br />
+<span style="color: #ff0000;"># 將最前面 3 個 NA 換成估計值</span><br />
+<span style="color: #ff0000;">gasRate3 = na.interpolation(gasRate3)</span></p>
+<p>model = arima(CO2,order=c(2,0,0),include.mean=T,<br />
+xtransf=cbind(gasRate3), transfer=list(c(1,2)))</p>
+<p>這樣應該就能正常執行。</p>

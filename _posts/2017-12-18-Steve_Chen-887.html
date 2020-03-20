@@ -1,0 +1,120 @@
+---
+author: "Steve Chen"
+title: "R: tryCatch 簡單範例"
+tags: ['Learning']
+link: "https://steve-chen.tw/?p=887"
+highlight: true
+---
+
+<p>R 軟體用於實務分析時，經常需要搭配定期自動執行軟體，以 Batch mode 方式在背景執行，但若 R 程式中某些地方發生錯誤，整個 R 程式往往就會停在出錯的地方，對於大型應用程式而言會造成很多困擾。<!--more-->此時，R 軟體的 tryCatch 函數可以協助偵測並解決 R 程式遇到錯誤時被強迫終止的問題，可讓出錯程式碼下方其他的程式繼續執行。</p>
+<p>網路上關於 tryCatch 函數的例子通常都寫得很囉唆、語焉不詳，所以我在這裡提供幾個簡單的應用範例。</p>
+<p><span id="more-887"></span><br />
+假設我們有一個 R 程式檔: d:/try1.R , 內容如下：</p>
+<p><code><span style="color: #0000ff;">x = "-1"</span><br />
+<span style="color: #0000ff;">sqrt(x)</span><br />
+<span style="color: #0000ff;">y = x</span><br />
+<span style="color: #0000ff;">y</span><br />
+</code></p>
+<p>在 R 軟體 GUI 中執行該程式檔:<br />
+<code><br />
+<span style="color: #993300;"><strong>&gt; source("d:/try1.R",echo=TRUE)</strong></span><br />
+<span style="color: #993300;"><strong>&gt; x = "-1"</strong></span><br />
+<span style="color: #993300;"><strong>&gt; sqrt(x)</strong></span><br />
+Error in sqrt(x) : non-numeric argument to mathematical function</code></p>
+<p>我們可以看到，程式執行到第 2 行時，就因為發生錯誤而停止，以致於底下的 y = x 與 y 都沒有被執行.</p>
+<p>如果我們把 try1.R 中的 x = &#8220;-1&#8221; 改成 x = -1 ，再用 source 函數執行一次，則 output 會是這樣：</p>
+<p><span style="font-family: arial, helvetica, sans-serif; color: #993300;"><strong><code>&gt; x = -1</code></strong></span><br />
+<span style="font-family: arial, helvetica, sans-serif; color: #993300;"> <strong> <code>&gt; sqrt(x)</code></strong></span><br />
+<code>[1] NaN</code><br />
+<span style="font-family: arial, helvetica, sans-serif; color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"> <strong><code>&gt; y</code></strong></span><br />
+<code>[1] -1</code><br />
+<code>Warning message:</code><br />
+<code>In sqrt(x) : 產生了 NaNs</code></p>
+<p>這時候只會產生 Warning(警告), 所以程式沒有中斷，y = x 與 y 都有被執行。</p>
+<p>接下來的 try2.R , 就是採用 tryCatch 函數同時處理 warning 與 error 的狀況：</p>
+<p><span style="color: #0000ff;"><code>tryCatch({</code></span><br />
+<span style="color: #0000ff;"> <code>           x = "-1"  </code></span><br />
+<span style="color: #0000ff;"> <code>           z = sqrt(x)</code></span><br />
+<span style="color: #0000ff;"> <code>         },</code></span><br />
+<span style="color: #0000ff;"> <code>         # 遇到 warning 時的自訂處理函數</code></span><br />
+<span style="color: #0000ff;"> <code>         warning = function(msg) {</code></span><br />
+<span style="color: #0000ff;"> <code>              message("Original warning message:")</code></span><br />
+<span style="color: #0000ff;"> <code>              message(paste0(msg,"\n"))</code></span><br />
+<span style="color: #0000ff;"> <code>              return(NULL)</code></span><br />
+<span style="color: #0000ff;"> <code>         },</code></span><br />
+<span style="color: #0000ff;"> <code>         # 遇到 error 時的自訂處理函數</code></span><br />
+<span style="color: #0000ff;"> <code>         error = function(msg) {</code></span><br />
+<span style="color: #0000ff;"> <code>              message("Original error message:")</code></span><br />
+<span style="color: #0000ff;"> <code>              message(paste0(msg,"\n"))</code></span><br />
+<span style="color: #0000ff;"> <code>              return(NA)</code></span><br />
+<span style="color: #0000ff;"> <code>         }</code></span><br />
+<span style="color: #0000ff;"> <code>) </code></span><br />
+<span style="color: #0000ff;"> <code>ifelse(exists("z"),z,"z does not exist!")</code></span><br />
+<span style="color: #0000ff;"> <code>y = x</code></span><br />
+<span style="color: #0000ff;"> <code>y</code></span></p>
+<p>在 R 軟體 GUI 中執行該程式檔:<br />
+<span style="color: #993300;"><strong><code>&gt; source("d:/try2.R",echo=TRUE)</code></strong></span></p>
+<p>可以得到以下 output:</p>
+<p><code>Original error message:</code><br />
+<code> Error in sqrt(x): non-numeric argument to mathematical function</code></p>
+<p><code>[1] NA</code></p>
+<p><span style="color: #993300;"><strong><code>&gt; ifelse(exists("z"),z,"z does not exist!")</code></strong></span><br />
+<code> [1] "z does not exist!"</code><br />
+<span style="color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"> <strong> <code>&gt; y</code></strong></span><br />
+<code> [1] "-1"</code></p>
+<p>我們可以看到，雖然發生錯誤，但 R 程式還是繼續執行，並沒有因此而中斷。</p>
+<p>如果我們把 try2.R 中的 x = &#8220;-1&#8221; 改成 x = -1, 再用 source 執行一次，這次只有 warning 狀況：</p>
+<p><code>Original warning message:</code><br />
+<code>simpleWarning in sqrt(x): 產生了 NaNs</code><br />
+<code>NULL</code><br />
+<span style="color: #993300;"><strong><code>&gt; ifelse(exists("z"),z,"z does not exist!")</code></strong></span><br />
+<code>[1] "z does not exist!"</code><br />
+<span style="color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"> <strong> <code>&gt; y</code></strong></span><br />
+<code>[1] -1</code></p>
+<p>最後，若我們把 try2.R 中的 x = -1 再改成 x = 4, 用 source 執行，就是正常未出錯的狀況：</p>
+<p><span style="color: #993300;"><strong><code>&gt; ifelse(exists("z"),z,"z does not exist!")</code></strong></span><br />
+<code>[1] 2 # z 變數的值</code><br />
+<span style="color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"> <strong> <code> &gt; y</code></strong></span><br />
+<code> [1] 4</code></p>
+<p>接下來我們再來看第三個例子 try3.R :</p>
+<p><span style="color: #0000ff;"><code>x = "-1"</code></span><br />
+<span style="color: #0000ff;"> <code> z = tryCatch({</code></span><br />
+<span style="color: #0000ff;"> <code>               sqrt(x)</code></span><br />
+<span style="color: #0000ff;"> <code>             },</code></span><br />
+<span style="color: #0000ff;"> <code>             warning = function(msg) {</code></span><br />
+<span style="color: #0000ff;"> <code>                  message("Original warning message:")</code></span><br />
+<span style="color: #0000ff;"> <code>                  message(paste0(msg,"\n"))</code></span><br />
+<span style="color: #0000ff;"> <code>                  return(NULL)</code></span><br />
+<span style="color: #0000ff;"> <code>             },</code></span><br />
+<span style="color: #0000ff;"> <code>             error = function(msg) {</code></span><br />
+<span style="color: #0000ff;"> <code>                  message("Original error message:")</code></span><br />
+<span style="color: #0000ff;"> <code>                  message(paste0(msg,"\n"))</code></span><br />
+<span style="color: #0000ff;"> <code>                  return(NA)</code></span><br />
+<span style="color: #0000ff;"> <code>             }</code></span><br />
+<span style="color: #0000ff;"> <code> )</code></span><br />
+<span style="color: #0000ff;"> <code> cat("z = ",z,"\n")</code></span><br />
+<span style="color: #0000ff;"> <code> y = x</code></span><br />
+<span style="color: #0000ff;"> <code> y</code></span></p>
+<p>用 source 執行 try3.R 的 output :</p>
+<p><code>Original error message:</code><br />
+<code> Error in sqrt(x): non-numeric argument to mathematical function</code></p>
+<p><span style="color: #993300;"><strong><code>&gt; cat("z = ",z,"\n")</code></strong></span><br />
+<code> z = NA</code><br />
+<span style="color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"><strong><code> &gt; y</code></strong></span><br />
+<code> [1] "-1"</code></p>
+<p>再把 try3.R 中的 x = &#8220;-1&#8221; 改成 x = -1, output 如下：</p>
+<p><code>Original warning message:</code><br />
+<code>simpleWarning in sqrt(x): 產生了 NaNs</code><br />
+<span style="color: #993300;"><strong><code>&gt; cat("z = ",z,"\n")</code></strong></span><br />
+<code>z =</code><br />
+<span style="color: #993300;"><strong><code>&gt; y = x</code></strong></span><br />
+<span style="color: #993300;"><strong><code>&gt; y</code></strong></span><br />
+<code>[1] -1</code><br />
+<span style="color: #993300;"><strong><code>&gt; is.null(z) # 額外輸入指令檢查 z 變數內容</code></strong></span><br />
+<code>[1] TRUE</code></p>
+<p>&nbsp;</p>

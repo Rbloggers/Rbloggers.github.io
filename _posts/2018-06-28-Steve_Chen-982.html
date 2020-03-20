@@ -1,0 +1,38 @@
+---
+author: "Steve Chen"
+title: "R 軟體 sqldf 套件：INSERT, UPDATE, CREATE TABLE AS SELECT"
+tags: 
+link: "https://steve-chen.tw/?p=982"
+highlight: true
+---
+
+<p>教 R 課程時剛好有同學詢問，這裡分享一下除了常用的 SELECT 之外，sqldf 套件如何執行 INSERT, UPDATE, 與 CREATE TABLE AS SELECT</p>
+<p><span id="more-982"></span></p>
+<p><strong>1. INSERT</strong></p>
+<p>&gt; query = c(&#8220;INSERT INTO iris VALUES (4,4,4,4,&#8217;setosa&#8217;)&#8221;,&#8221;SELECT * FROM iris&#8221;)<br />
+&gt; iris2 = sqldf(query)<br />
+&gt; tail(iris2,3)</p>
+<p><code>149 6.2 3.4 5.4 2.3 virginica</code><br />
+<code>150 5.9 3.0 5.1 1.8 virginica</code><br />
+<code>151 <span style="color: #0000ff;">4.0 4.0 4.0 4.0 setosa</span></code></p>
+<p><strong>2. UPDATE</strong></p>
+<p>&gt; query = c(&#8220;UPDATE iris SET [Sepal.Length]=10 WHERE [Sepal.Length] = 5.1 AND [Sepal.Width]=3.5&#8221;,<br />
+&#8220;SELECT * FROM iris&#8221;)<br />
+&gt; iris2 = sqldf(query)<br />
+&gt; head(iris2,3)</p>
+<p><code> Sepal.Length Sepal.Width Petal.Length Petal.Width Species</code><br />
+<code>1 <span style="color: #0000ff;">10.0</span> 3.5 1.4 0.2 setosa</code><br />
+<code>2  4.9 3.0 1.4 0.2 setosa</code><br />
+<code>3  4.7 3.2 1.3 0.2 setosa</code></p>
+<p><strong>3. CREATE TABLE AS SELECT</strong></p>
+<p>&gt; query = c(&#8220;CREATE TABLE tmp AS SELECT * FROM iris WHERE  [Sepal.Length] &gt; 4.7&#8221;,<br />
+&#8220;SELECT * FROM tmp&#8221;)<br />
+&gt; iris2 = sqldf(query)<br />
+&gt; dim(iris2)</p>
+<p><code>[1] 139 5</code></p>
+<p><strong>關於 3 的補充：</strong>其實最快的方式，是</p>
+<p>iris2 = sqldf(&#8220;SELECT * FROM iris WHERE  [Sepal.Length] &gt; 4.7&#8221;)<br />
+<strong><br />
+</strong>上面的範例只是 demo sqldf 可與傳統 SQL &#8220;CREATE TABLE AS&#8221; 語法相容</p>
+<p>註：<br />
+iris 資料檔因為前 4 個變數的名稱有包含英文據點 &#8220;.&#8221;, 但這符號在 SQL 有階層用途，所以需用 [ &#8230;. ] 以避免誤判</p>

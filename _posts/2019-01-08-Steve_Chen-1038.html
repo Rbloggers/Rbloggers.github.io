@@ -1,0 +1,52 @@
+---
+author: "Steve Chen"
+title: "使用 pdftools 套件擷取台灣各縣市明日白天雨量"
+tags: ['Text Mining']
+link: "https://steve-chen.tw/?p=1038"
+highlight: true
+---
+
+<p>以下 R 程式碼會先從中央氣象局網站擷取各縣市明日白天雨量 pdf 檔，轉成 text 文字檔，再擷取出各縣市相對的雨量 (%)。<!--more--></p>
+<p>作業系統：Windows 7<br />
+R 版本：R-3.5.1</p>
+<p><span id="more-1038"></span></p>
+<p><code># get rainfall for tomorrow daytime</code><br />
+<code> require(pdftools)</code><br />
+<code> require(BBmisc) # use "suppressAll" function</code><br />
+<code> require(stringr)</code></p>
+<p><code>download.file("https://www.cwb.gov.tw/V7/forecast/taiwan/Data/W03.pdf",</code><br />
+<code> "d:/tmp/rains.pdf")</code></p>
+<p><code>text = suppressAll(pdf_text("d:/tmp/rains.pdf"),immediate.=T)</code><br />
+<code> text = unlist(strsplit(text,"\r\n"))</code><br />
+<code> text = text[grepl("^＊",text)]</code></p>
+<p><code>citiesTW1 = c("台北市","北市","桃園市","台中市","台南市",</code><br />
+<code> "高雄市","基隆市","竹縣","竹市","苗縣","彰化縣","南投縣",</code><br />
+<code> "雲縣","嘉義縣","嘉義市","屏縣","宜蘭縣","花蓮縣","台縣","澎湖縣","金門縣",</code><br />
+<code> "連江縣")</code></p>
+<p><code>citiesTW2 = c("台北市","新北市","桃園市","台中市","台南市",</code><br />
+<code> "高雄市","基隆市","新竹縣","新竹市","苗栗縣","彰化縣","南投縣",</code><br />
+<code> "雲林縣","嘉義縣","嘉義市","屏東縣","宜蘭縣","花蓮縣","台東縣","澎湖縣","金門縣",</code><br />
+<code> "連江縣")</code></p>
+<p><code>names(citiesTW2)=citiesTW1</code></p>
+<p><code> for (row in text)</code><br />
+<code> {</code><br />
+<code> tmp2 = unlist(strsplit(row,"％"))[1] # "＊臺北市 陰時多雲 ２０"</code><br />
+<code> tmp3 = unlist(strsplit(tmp2," "))</code><br />
+<code> rainTmp = tail(tmp3,1) # "２０"</code><br />
+<code> rainTmp = gsub("１","1",rainTmp)</code><br />
+<code> rainTmp = gsub("２","2",rainTmp)</code><br />
+<code> rainTmp = gsub("３","3",rainTmp)</code><br />
+<code> rainTmp = gsub("４","4",rainTmp)</code><br />
+<code> rainTmp = gsub("５","5",rainTmp)</code><br />
+<code> rainTmp = gsub("６","6",rainTmp)</code><br />
+<code> rainTmp = gsub("７","7",rainTmp)</code><br />
+<code> rainTmp = gsub("８","8",rainTmp)</code><br />
+<code> rainTmp = gsub("９","9",rainTmp)</code><br />
+<code> rainTmp = gsub("０","0",rainTmp)</code><br />
+<code> rainTmp = as.integer(str_trim(rainTmp))</code></p>
+<p><code>xcity = str_trim(gsub("＊","",tmp3[1])) # "臺北市"</code><br />
+<code> xcity = gsub("臺","台",xcity)</code><br />
+<code> xcity = citiesTW2[xcity]</code><br />
+<code> if (xcity %in% citiesTW2)</code><br />
+<code> cat(xcity,":",rainTmp,"\n")</code><br />
+<code> }</code></p>

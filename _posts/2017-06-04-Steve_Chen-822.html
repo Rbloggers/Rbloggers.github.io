@@ -1,0 +1,163 @@
+---
+author: "Steve Chen"
+title: "為什麼我們看不懂別人寫的 R 程式？"
+tags: ['Learning']
+link: "https://steve-chen.tw/?p=822"
+highlight: true
+---
+
+<p>外界在提到 R 軟體時，在褒獎之餘，總是人云亦云地會順便提到「R 軟體的學習曲線頗陡峭」。<!--more-->我思考了幾個可能原因，想到以前我在學 Perl 程式語言的經驗。當時我買了好幾本 Perl 的書，但後來放棄的原因，是我看到網路上有經驗的人寫的 Perl 程式時，經常會在書上找不到他們用的特殊奇怪語法，這讓我非常氣餒。</p>
+<p>關於「R 很難學」的迷思，可能的原因之一，或許就是這種「初學者看不懂程式」的挫折使然。所以這裡我列出一些 R 軟體有別於其他程式語言的常見特殊寫法，或許能幫忙一些初學者度過第一關。</p>
+<p><span id="more-822"></span></p>
+<p>R 軟體有別於其他程式語言的特殊語法：</p>
+<p><span style="font-size: 14pt; color: #000000;"><strong>1. 「=」, 「&lt;-」, 與「&lt;&lt;-」三個運算符號</strong></span></p>
+<p>(1) 「=」跟「&lt;-」是一樣的。R 語言是源自於 AT&amp;T 的 S 語言。在 S 語言中，「&lt;-」的意義就是「=」。從 R-1.4.0 版之後，R 軟體開始導入「=」號，目前兩者皆可使用。</p>
+<p>(2) 「&lt;&lt;-」只在 funciton 中使用，可以從 function 內部改變 function 外面的全域變數(Global Variable) 的值。若在函數內只有使用「=」或「&lt;-」，則函數之外的全域變數值不會被改變。例如：</p>
+<p><span style="color: #0000ff;"><code>x1 = 100 ; x2 = 100</code></span><br />
+<span style="color: #0000ff;"> <code>f2 = function(y)</code></span><br />
+<span style="color: #0000ff;"> <code>{</code></span><br />
+<span style="color: #0000ff;"> <code>  x1 &lt;&lt;- y + 10</code></span><br />
+<span style="color: #0000ff;"> <code>  x2 &lt;- y + 10</code></span><br />
+<span style="color: #0000ff;"> <code>  w = y + 20</code></span><br />
+<span style="color: #0000ff;"> <code>  return(w)</code></span><br />
+<span style="color: #0000ff;"> <code>}</code></span><br />
+<span style="color: #0000ff;"> <code>f2(6)</code></span><br />
+<code>  [1] 26    # w =  6 + 20 = 26</code><br />
+<span style="color: #0000ff;"><code>x1</code></span><br />
+<code>  [1] 16    # x1 &lt;&lt;- 6 + 10</code><br />
+<span style="color: #0000ff;"><code>x2</code></span><br />
+<code>  [1] 100    # x2 未被改變</code></p>
+<p><span style="font-size: 14pt; color: #000000;"><strong>2. 使用指標時，到底要不要加 c(  &#8230;. ) ？</strong></span></p>
+<p>原則：只要用到 2 個或 2 個以上指標時，都必須用 c(&#8230;.) 把這些指標包起來，唯一的例外是 「:」，例如 1:3 外面就不用加 c(&#8230;.)，但<span style="color: #ff0000;">加了也不會出錯, 如 c(1:3)</span></p>
+<p><span style="color: #0000ff;"><code>x = 11:20</code></span><br />
+<span style="color: #0000ff;"> <code>names(x) = paste0("k",11:20)  # 為每個元素加上名稱</code></span><br />
+<span style="color: #0000ff;"> <code>x</code></span><br />
+<code>  k11 k12 k13 k14 k15 k16 k17 k18 k19 k20 </code><br />
+<code>   11  12  13  14  15  16  17  18  19  20 </code><br />
+<span style="color: #0000ff;"><code>x[3]</code></span><br />
+<code>  k13 </code><br />
+<code>   13 </code><br />
+<span style="color: #0000ff;"><code>x[1:3]</code></span><br />
+<code>  k11 k12 k13 </code><br />
+<code>   11  12  13 </code><br />
+<span style="color: #0000ff;"><code>x[c(2,4,9)]</code></span><br />
+<code>  k12 k14 k19 </code><br />
+<code>   12  14  19 </code><br />
+<span style="color: #0000ff;"><code>x["k13"]</code></span><br />
+<code>  k13 </code><br />
+<code>   13 </code><code></code><br />
+<span style="color: #0000ff;"><code>x[c("k12","k14","k19")]</code></span><br />
+<code>  k12 k14 k19 </code><br />
+<code>   12  14  19</code></p>
+<p><span style="font-size: 14pt; color: #000000;"><span class="UFICommentBody" style="font-size: 12pt;"><span style="font-size: 14pt;"><strong>3. 指標外面該用 [ &#8230; ] 還是 [[ &#8230; ]] ?</strong></span><br />
+</span></span></p>
+<p><span style="font-size: 14pt; color: #000000;"><span class="UFICommentBody" style="font-size: 12pt;">[ &#8230; ] 傳回的資訊<strong>多</strong>，[[ &#8230; ]] 傳回的資訊<strong>少</strong><br />
+<strong>[[ &#8230; ]]</strong> 雙重方刮號有 2 個原則：</span></span></p>
+<p>(1)  傳回比較精簡濃縮的資訊<br />
+(2) 只能放一個數字指標或名稱指標，不能放兩個以上</p>
+<p><span style="color: #0000ff;"><code>some.dataFrame[3]       # 傳回第 3 個變數，但被包在新的 data-frame 中</code></span><br />
+<span style="color: #0000ff;"><code>some.dataFrame[[3]]     # 傳回第 3 個變數 (vector 或 factor)</code></span><br />
+<span style="color: #0000ff;"><code>some.List[3]            # 傳回第 3 個元素，但被包在一個新的 list 變數裡面</code></span><br />
+<span style="color: #0000ff;"><code>some.List[[3]]          # 傳回第 3 個元素，沒有被 list 結構包起來</code></span><br />
+<span style="color: #0000ff;"><code>x = 1:10</code></span><br />
+<span style="color: #0000ff;"><code>x[1]</code></span><br />
+<code>   [1] 1</code><br />
+<span style="color: #0000ff;"><code>x[[1]]                  # 與 x[1] 相同</code></span><br />
+<code>   [1] 1</code><br />
+<span style="color: #0000ff;"><code>names(x) = letters[1:10]     # 幫 x 的元素加上名稱</code></span><br />
+<span style="color: #0000ff;"><code>x</code></span><br />
+<code>   <span style="color: #ff0000;">a b c d e f g h i j</span></code><br />
+<code>   1 2 3 4 5 6 7 8 9 10</code><br />
+<span style="color: #0000ff;"><code>x[1]               # 多出了元素名稱 "a"</code></span><br />
+<code>   <span style="color: #ff0000;">a</span></code><br />
+<code>   1</code><br />
+<code><span style="color: #0000ff;">x[[1]]</span></code><br />
+<code>   [1] 1</code></p>
+<p><strong>4. 向量/矩陣之間的向量化(Vetorized)加減乘除運算</strong></p>
+<p><span style="color: #0000ff;"><code>x = c(1,2,3,4,5)</code></span><br />
+<span style="color: #0000ff;"> <code>y = c(10,20,30,40,50)</code></span><br />
+<span style="color: #0000ff;"> <code>x + y</code></span><br />
+<code>  [1] 11 22 33 44 55</code><br />
+<span style="color: #0000ff;"><code>x - y</code></span><br />
+<code>  [1] -9 -18 -27 -36 -45</code><br />
+<span style="color: #0000ff;"><code>x * y</code></span><br />
+<code>  [1] 10 40 90 160 250</code><br />
+<span style="color: #0000ff;"><code>y ^ x</code></span><br />
+<code>  [1] 10 400 27000 2560000 312500000</code><br />
+<code><span style="color: #0000ff;">x + 100</span> </code><br />
+<code>  [1] 101 102 103 104 105</code></p>
+<p><span style="font-size: 14pt; color: #000000;"><strong>5. 在指標區域用邏輯條件做快速的資料(元素/橫列(rows))篩選</strong></span></p>
+<p><span style="color: #0000ff;"><code>score = c(43,56,74,61,61,55)</code></span><br />
+<span style="color: #0000ff;"> <code> sex = c("男","男","女","女","女","男")</code></span><br />
+<span style="color: #0000ff;"> <code> blood = c("A","O","A","O","O","A")</code></span><br />
+<span style="color: #0000ff;"> <code> score[score &lt;= 60]</code></span><br />
+<code>  [1] 43 56 55</code><br />
+<span style="color: #0000ff;"><code> score[sex == "女"]</code></span><br />
+<code>  [1] 74 61 61</code><br />
+<span style="color: #0000ff;"><code> mean(score[sex == "女"])</code></span><br />
+<code>  [1] 65.33333</code><br />
+<span style="color: #0000ff;"><code> mean(score[sex == "男"])</code></span><br />
+<code>  [1] 51.33333</code><br />
+<span style="color: #0000ff;"><code> # 所有 A 型男性的平均成績</code></span><br />
+<span style="color: #0000ff;"> <code> mean(score[sex == "男" &amp; blood == "A"])</code></span><br />
+<code>  [1] 49</code><br />
+<span style="color: #0000ff;"><code> # 找出所有 Sepal.Length &gt; 4.0 的橫列(rows), 並儲存在 iris2</code></span><br />
+<span style="color: #0000ff;"> <code> iris2 = iris[iris$Sepal.Length &gt; 4.0, ]</code></span></p>
+<p><span style="font-size: 14pt; color: #000000;"><strong>6. 矩陣/資料框架行列指標的省略</strong></span></p>
+<p><span style="color: #0000ff;"><code>M = matrix(c(1,2,3,4,5,6),nrow=2,ncol=3,byrow=TRUE)</code></span><br />
+<span style="color: #0000ff;"> <code>M</code></span><br />
+<code>       [,1] [,2] [,3]</code><br />
+<code>  [1,]   1    2    3</code><br />
+<code>  [2,]   4    5    6</code><br />
+<span style="color: #0000ff;"><code>M[1,2]   # 取出單一元素值</code></span><br />
+<code>  [1] 2</code><br />
+<span style="color: #0000ff;"><code>M[1,]    # 取出第 1 列(row)</code></span><br />
+<code>  [1] 1 2 3</code><br />
+<span style="color: #0000ff;"><code>M[2,]    # 取出第 2 列(row)</code></span><br />
+<code>  [1] 4 5 6</code><br />
+<span style="color: #0000ff;"><code>M[,1]    # 取出第 1 行(column)</code></span><br />
+<code>  [1] 1 4</code><br />
+<span style="color: #0000ff;"><code>M[,3]    # 取出第 3 行(column)</code></span><br />
+<code>  [1] 3 6</code></p>
+<p><span style="font-size: 14pt; color: #000000;"><strong>7.「$」符號是什麼東東？</strong></span></p>
+<p>「$」是 R 軟體中的 List (串列) 變數跟 Data Frame (資料框架) 變數在抓取個別內部元素或變數時所用的運算元。例如：</p>
+<p><span style="color: #0000ff;"><code>friend = list(fname="林大旺",age=25,child=c("林小華","林小珍"))</code></span><br />
+<span style="color: #0000ff;"> <code>names(friend)</code></span><br />
+<code>  [1] "</code>fname<code>" "age" "child"</code><br />
+<span style="color: #0000ff;"><code>friend$fname</code></span><br />
+<code>  [1] "林大旺"</code><br />
+<span style="color: #0000ff;"><code>friend$age</code></span><br />
+<code>  [1] 25</code><br />
+<span style="color: #0000ff;"><code>friend$child</code></span><br />
+<code>  [1] "林小華" "林小珍"</code><br />
+<span style="color: #0000ff;"><code>friend$child[2]</code></span><br />
+<code>  [1] "林小珍"</code><br />
+<span style="color: #0000ff;"><code># 或</code></span><br />
+<span style="color: #0000ff;"><code>childs = friend$child</code></span><br />
+<span style="color: #0000ff;"> <code>childs[2]</code></span><br />
+<code>  [1] "林小珍"</code></p>
+<p>List 變數是很多 R 的大型計算函數傳回的慣用變數型態，因為 List 變數內可以包山包海，什麼資料都可以放進去。例如</p>
+<p><span style="color: #0000ff;"><code>result = lm(Sepal.Length ~ Petal.Length,data=iris)</code></span><br />
+<span style="color: #0000ff;"> <code>names(result)</code></span><br />
+<code>  [1] "coefficients" "residuals" "effects" "rank"</code><br />
+<code>  [5] .........</code><br />
+<span style="color: #0000ff;"><code>result$coefficients</code></span><br />
+<code>  (Intercept) Petal.Length</code><br />
+<code>   4.3066034     0.4089223</code></p>
+<p><span style="color: #0000ff;"><code>SL = iris$Sepal.Length  # 取出 iris 資料框架內的 Sepal.Length 變數</code></span></p>
+<p><span style="font-size: 14pt;"><strong>8. 那些奇怪的「%&gt;%」符號是什麼東東？</strong></span></p>
+<p>「%&gt;%」是 dplyr 套件常用的「向前(其實是向右)管道」(forward pipe) 運算子，可以把原本分作好幾行的運算結合在一起。例如</p>
+<p><span style="color: #0000ff;"><code>iris %&gt;% subset(select=Sepal.Length) %&gt;% summary</code></span><br />
+<code>  Sepal.Length</code><br />
+<code>  Min. :4.300</code><br />
+<code>  1st Qu.:5.100</code><br />
+<code>  Median :5.800</code><br />
+<code>  Mean :5.843</code><br />
+<code>  3rd Qu.:6.400</code><br />
+<code>  Max. :7.900</code></p>
+<p>上面的程式相當於以下這一行程式「由內而外」的運算順序改成「由左而右」：</p>
+<p><code><span style="color: #0000ff;">summary(subset(iris, select=Sepal.Length))</span></code></p>
+<p>其實原本分開寫成兩行運算，需要佔用記憶體多用一個臨時變數 iris2：</p>
+<p><span style="color: #0000ff;"><code>iris2 = subset(iris, select=Sepal.Length)</code></span><br />
+<span style="color: #0000ff;"><code> summary(iris2)</code></span></p>
+<p>dplyr 套件這個符號源自於 magrittr 套件，除了「%&gt;%」符號外，還有「%&lt;&gt;%」、「%$%」、「%T&gt;%」三種運算子可用。但是，這類屬於某特定套件的運算符號，目前尚未被納入 R 軟體核心，因此國外也有些人認為，在寫 R 的套件時，不適合使用這類運算符號，以免造成新套件對其他套件的過度依賴。</p>

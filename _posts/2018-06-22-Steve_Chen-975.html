@@ -1,0 +1,28 @@
+---
+author: "Steve Chen"
+title: "R Windows 版 + ITRI 文字語音服務: Text to Speech"
+tags: 
+link: "https://steve-chen.tw/?p=975"
+highlight: true
+---
+
+<p>以下範例程式，使用 ITRI (台灣工研院語音服務) API，讓 R 達成簡單的 Text to Speech 功能</p>
+<p><span id="more-975"></span></p>
+<p>輔助軟體：Windows command line WAV player: sWavPlayer.exe</p>
+<p>請至以下網址下載，解壓縮後，放在某個特定資料夾，例如: d:\voice\sWavPlayer.exe</p>
+<p><a href="http://www.dcmembers.com/skwire/download/swavplayer/" target="_blank" rel="noopener noreferrer">http://www.dcmembers.com/skwire/download/swavplayer/</a></p>
+<p>R : 需安裝 Rtts 與 sound 套件</p>
+<p>Code:</p>
+<p><code>library(Rtts)</code><br />
+<code>library(sound)</code><br />
+<code>setWavPlayer("d:/voice/sWavPlayer.exe")</code></p>
+<p><code>t1 = "今天要去看電影"</code><br />
+<code>t2 = iconv(t1,"CP950","UTF-8")</code><br />
+<code>tmp_file = tempfile(fileext = ".wav")</code><br />
+<code>tts_ITRI(t2,speaker="Theresa",destfile=tmp_file)</code><br />
+<code>play(tmp_file)</code><br />
+<code>unlink(tmp_file)</code></p>
+<p>註：</p>
+<p>可選擇的 speaker 有以下名字，預設為 &#8220;Bruce&#8221;</p>
+<p>[1] English &amp; Chinese: &#8220;Bruce&#8221;, &#8220;Theresa&#8221;, &#8220;Angela&#8221;, &#8220;MCHEN_Bruce&#8221;, &#8220;MCHEN_Joddess&#8221;;</p>
+<p>[2] Only English: &#8220;ENG_Bob&#8221;, &#8220;ENG_Alice&#8221;, &#8220;ENG_Tracy&#8221;.</p>

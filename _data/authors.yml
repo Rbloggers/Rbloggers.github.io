@@ -1,0 +1,64 @@
+Yongfu Liao:
+  name      : "Yongfu Liao"
+  url       : https://liao961120.github.io
+  avatar    : https://liao961120.github.io/assets/images/me-about.png
+  bio       : '我是 Yongfu Liao，興趣是<strong>R Markdown</strong>'
+  email     : liao961120@gmail.com
+  github    : liao961120
+  facebook  : liao961120
+
+Alan Lee:
+  name      : "RWEPA"
+  url       : http://rwepa.blogspot.com/
+  avatar    : https://raw.githubusercontent.com/rwepa/images/master/rwepa-logo.png
+  bio       : '我是 MING-CHANG LEE,  興趣是 R/Python程式設計,資料視覺化與企業應用。'
+  email     : alan9956@gmail.com
+
+  
+G. T. Wang:
+  name      : "G. T. Wang"
+  url       : https://blog.gtwang.org/about/
+  avatar    : https://blog.gtwang.org/wp-content/uploads/2015/03/gtwang-logo-blue-1024x1024.png
+  bio       : 
+  email     : 
+  github    : 
+  facebook  : 
+
+Steve Chen:
+  name      : "Steve Chen"
+  url       : http://steve-chen.tw/?page_id=15
+  avatar    : /assets/images/default-avatar-m.png
+  bio       : 
+  email     : 
+  github    : 
+  facebook  : 
+
+yjtseng:
+  name      : "曾意儒"
+  url       : https://yjtseng.info
+  avatar    : https://yjtseng.info/img/Photo2015.jpg
+  bio       : '長庚資管老師，教授R、數據分析等課程，研究領域為醫學資訊'
+  email     : yjtseng@mail.cgu.edu.tw
+  github    : yijutseng
+  linkedin  : yijutseng
+  
+collabin:
+  name      : "協作閣"
+  url       : https://collabin.netlify.com/info/about
+  avatar    : https://collabin.netlify.com/images/cabin-512.png
+  bio       : '提供任何有心撰文的筆者，一個能發表並長期保存文章的平台。'
+  
+# /assets/images/default-avatar.jpeg
+
+#Tian Qi:
+#  name      : Tian Qi
+#  url       : https://tianqi.name
+#  avatar    : https://wx3.sinaimg.cn/large/73bd9e13ly1fjkqy66hl8j208c08c0td.jpg
+#  bio       : Author of TeXt.
+#  email     : kitian616@outlook.com
+#  twitter   : kitian616
+#  facebook  : kitian616
+#  linkedin  :
+#  github    : kitian616
+#  googleplus: 101827554735084402671
+#  weibo     : 234695683

@@ -1,0 +1,62 @@
+---
+author: "Steve Chen"
+title: "R 迴圈 List, Vector 記憶體預分配的考量"
+tags: 
+link: "https://steve-chen.tw/?p=960"
+highlight: true
+---
+
+<p>在 PTT R_Language 版有一篇 2015 年的文章「<a href="https://www.ptt.cc/bbs/R_Language/M.1437916508.A.C27.html" target="_blank" rel="noopener noreferrer">[心得] 預分配記憶體的差異</a>」，比較了 R 迴圈時 List 變數是否預分配記憶體的計算速度差異。<!--more-->作者使用的 R 版本是 Revolution R Open 3.2.0，結論是速度相差 60 倍。但最近幾年 R 改版幅度變化很大，國外有一些新的說法出現，認為 List 變數的記憶體本來就不是連續配置，所以在每個迴圈中逐次增加 List 變數元素，在計算速度的影響不大。</p>
+<p>以下是我把該文測試 R 程式用幾個較新 R 版本測試的結果</p>
+<p><span id="more-960"></span></p>
+<p>先看結果。底下表格是 List 變數在迴圈之前是否作「記憶體預分配」的計算時間比較。PRO 3.2.0 是指 Revolution R 公司尚未賣給微軟之前的 Community 版本，已經有一些向量矩陣平行運算的功能：</p>
+<p><img src="http://steve-chen.tw/wp-content/uploads/2018/06/List_pre.jpg" alt="" width="445" height="479" /></p>
+<p>&nbsp;</p>
+<p>從上表中可以看出，相較於 PRO 3.2.0 與 R 3.3.2，在 R 3.4.0 版(含)之後，由於內建 JIT 自動編譯，是否作記憶體預分配的差異已經不是很大。</p>
+<p>接下來是向量 (Vector) 在迴圈之前是否作記憶體預分配的計算時間比較：</p>
+<p><img src="http://steve-chen.tw/wp-content/uploads/2018/06/Vector_pre.jpg" alt="" width="440" height="295" /></p>
+<p>&nbsp;</p>
+<p>上表可以看出：在迴圈之前有作記憶體預分配的向量計算程式的確快很多，而且在 R 3.4.0 版(含) 之後，速度的提升非常顯著，從 PRO 3.2.0 的 53 倍差距，提升到 452 倍、460 倍的差距。</p>
+<p><span style="font-size: 14pt;"><strong>附註：</strong></span></p>
+<p>測試程式沿用 2015 年 PTT 文章的程式，僅做 functions 名稱的修改</p>
+<p>List 變數：</p>
+<p><code>L_NO &lt;- function(){</code><br />
+<code>    a &lt;- list()</code><br />
+<code>    for (i in 1:1e6){ a[[i]] &lt;- rnorm(10) }</code><br />
+<code>}</code></p>
+<p><code>L_pre &lt;- function(){</code><br />
+<code>    a &lt;- vector('list', 1e6)</code><br />
+<code>    for (i in 1:1e6){ a[[i]] &lt;- rnorm(10) }</code><br />
+<code>}</code><br />
+<code>library(rbenchmark)</code><br />
+<code>benchmark(L_NO(), L_pre(),</code><br />
+<code> columns = c("test", "replications", "elapsed", "relative"),</code><br />
+<code> order = "relative", replications = 20)</code></p>
+<p>Vector 變數：</p>
+<p><code>V_NO &lt;- function(){</code><br />
+<code>  MaxIter = 1e5</code><br />
+<code>  x = c()</code><br />
+<code>  i = 0</code><br />
+<code>  while (i &lt; MaxIter){</code><br />
+<code>    i &lt;- i + 1</code><br />
+<code>    x &lt;- c(x, i)</code><br />
+<code>    if (i &gt; 5e4)</code><br />
+<code>      break</code><br />
+<code>  }</code><br />
+<code>  x</code><br />
+<code>}</code></p>
+<p><code>V_pre &lt;- function(){</code><br />
+<code>  MaxIter = 1e5</code><br />
+<code>  x = rep(NA_real_, MaxIter) </code><br />
+<code>  for (i in 1:MaxIter) {</code><br />
+<code>    x[i] &lt;- i</code><br />
+<code>    if (i &gt; 5e4)</code><br />
+<code>      break</code><br />
+<code>  }</code><br />
+<code>  (x = x[!is.na(x)])</code><br />
+<code>}</code></p>
+<p><code>library(rbenchmark)</code><br />
+<code>benchmark(V_NO(), V_pre(),</code><br />
+<code> columns = c("test", "replications", "elapsed", "relative"),</code><br />
+<code> order = "relative", replications = 20)</code></p>
+<p>&nbsp;</p>

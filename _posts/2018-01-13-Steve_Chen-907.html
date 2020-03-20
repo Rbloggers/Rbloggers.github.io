@@ -1,0 +1,41 @@
+---
+author: "Steve Chen"
+title: "R軟體 svSocket Server + PHP Socket Client"
+tags: 
+link: "https://steve-chen.tw/?p=907"
+highlight: true
+---
+
+<p>R 軟體中有一個 svSocket 套件可以讓 R 成為 Socket Server，其優點是啟動 Server 後轉為背後執行，R 軟體可以繼續作其他事情，但目前僅找得到 R 與 tcl 相對於 svSocket 的 Client 程式範例。<!--more-->以下是我用 PHP 當作 Socket Client 連接後端 R svSocket Server 的測試結果。</p>
+<p><span id="more-907"></span></p>
+<p><strong>Step 1.</strong> 在 R 軟體中執行以下指令：</p>
+<p><span style="color: #0000ff;">library(svSocket)</span><br />
+<span style="color: #0000ff;"> startSocketServer(port = 6011)</span></p>
+<p>Note:<br />
+(1) 防火牆要解除對 localhost port 6011 的封鎖。<br />
+(2) 可用 stopSocketServer(port = 6011) 停止 Server 運作。</p>
+<p><strong>Step 2.</strong> 寫一個可在 local 網站中執行的 PHP 程式, 例如 svClient.php：</p>
+<p><code>&lt;?php</code><br />
+<code>set_time_limit(0);</code></p>
+<p><code>$host="127.0.0.1";</code><br />
+<code>$port = 6011;</code></p>
+<p><code>$fp = fsockopen ($host, $port, $errno, $errstr,10);</code><br />
+<code>$out = "";</code><br />
+<code>if (!$fp)</code><br />
+<code> $out = "Error: could not open socket connection";</code><br />
+<code>else</code><br />
+<code>{</code><br />
+<code>    $in = "&lt;&lt;&lt;e&gt;&gt;&gt;(rnorm(100))&lt;&lt;&lt;n&gt;&gt;&gt;log(2.3)\r";</code><br />
+<code>    fputs ($fp, $in);</code><br />
+<code>    $out = fread($fp, 102400);</code><br />
+<code>    fclose ($fp);</code><br />
+<code>}</code><br />
+<code>// assume socket server in Windows OS</code><br />
+<code>$out = iconv("big5","utf-8",$out);</code><br />
+<code>echo nl2br($out);</code><br />
+<code>?&gt;</code></p>
+<p>說明：<span style="color: #0000ff;">&lt;&lt;&lt;e&gt;&gt;&gt;</span> 是讓 svSocket 把接收到的字串當成 R 的程式碼跑出結果，<span style="color: #0000ff;">&lt;&lt;&lt;n&gt;&gt;&gt;</span> 是換行符號</p>
+<p><strong>Step 3.</strong> 用瀏覽器連線到 http://127.0.0.1/svClient.php</p>
+<p>網頁的輸出結果如下：</p>
+<p><img src="http://steve-chen.tw/wp-content/uploads/2018/01/svOut2.jpg" alt="" width="500" /></p>
+<p>&nbsp;</p>

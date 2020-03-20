@@ -1,0 +1,73 @@
+---
+author: "yjtseng"
+title: "R的arguments出現三個點是...?"
+tags: 
+link: "https://blog.yjtseng.info/post/dotdotdot"
+highlight: true
+---
+
+<h2 id="r函數介紹">R函數介紹</h2>
+
+<p>需要先介紹怎麼在R裡面寫函數</p>
+
+<pre><code class="language-r">f &lt;- function(...) { 
+  names(list(...)) 
+} 
+</code></pre>
+
+<p>上述程式碼中，·<code>f</code>是一個使用者自訂函數，就像java裡面的method，而<strong>…</strong>的功能，則是讓<code>f</code>函數可以輸入各式各樣的參數，而且可以將參數往下丟到其他函數內。<!--more--></p>
+
+<h2 id="使用範例一">&hellip;使用範例一</h2>
+
+<p>舉例來說，若執行<code>f(a = 1, b = 2)</code>，a和b這兩個參數可以直接傳到<code>list()</code>函數中，變成<code>names(list(a=1,b=2))</code>，意即生成一個list，內有兩個元素，a=1以及b=2。</p>
+
+<pre><code class="language-r">f(a = 1, b = 2)
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;
+</code></pre>
+
+<pre><code class="language-r">names(list(a=1,b=2)) #輸出相同
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;
+</code></pre>
+
+<h2 id="使用範例二">&hellip;使用範例二</h2>
+
+<pre><code class="language-r">addPercent &lt;- function(x, mult = 100, ...){ 
+  percent &lt;- round(x * mult, ...) 
+  paste0(percent, &quot;%&quot;) 
+}
+</code></pre>
+
+<p>在上述程式碼中，<code>addPercent</code>是一個使用者自訂函數，<strong>…</strong>的功能讓<code>addPercent</code>函數可以輸入各式各樣的參數，而且可以將參數往下丟到其他函數內。</p>
+
+<pre><code class="language-r">addPercent(c(0.5887,0.6925), digits = 2)
+</code></pre>
+
+<pre><code>## [1] &quot;58.87%&quot; &quot;69.25%&quot;
+</code></pre>
+
+<pre><code class="language-r">addPercent(c(0.5887,0.6925), digits = 1)
+</code></pre>
+
+<pre><code>## [1] &quot;58.9%&quot; &quot;69.2%&quot;
+</code></pre>
+
+<p>因此在執行<code>addPercent(c(0.5887,0.6925), digits = 2)</code>時，<code>digits</code>參數被傳遞到自定義函數<code>addPercent</code>中的<code>round</code>函數內，變成<code>round</code>函數中的參數。
+在<code>round</code>函數中，<code>digits</code>參數的功能是設定四捨五入的位數，因此<code>digits = 2</code>是指四捨五入到小數點第二位，<code>digits = 1</code>是指四捨五入到小數點第一位。</p>
+
+<h2 id="使用範例三">&hellip;使用範例三</h2>
+
+<pre><code class="language-r">HelloWorld &lt;- function(...) {
+  arguments &lt;- list(...) 
+  paste(arguments)
+} 
+</code></pre>
+
+<pre><code class="language-r">HelloWorld(&quot;Hello&quot;, &quot;World&quot;, &quot;!&quot;,&quot;~&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;Hello&quot; &quot;World&quot; &quot;!&quot;     &quot;~&quot;
+</code></pre>

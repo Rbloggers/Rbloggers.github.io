@@ -1,0 +1,35 @@
+---
+author: "Steve Chen"
+title: "R + sparkR : Windows 7 安裝筆記"
+tags: 
+link: "https://steve-chen.tw/?p=953"
+highlight: true
+---
+
+<p>最近剛好用到 SparkR, 但 Google 上的一些安裝網頁由於版本與設定不同，資訊都不大完整。<!--more-->這裡提供一下我的安裝過程</p>
+<p><span id="more-953"></span></p>
+<p><strong>1. 下載 hadoop, 解壓縮到, e.g, d:\hadoop</strong></p>
+<p>https://archive.apache.org/dist/hadoop/common/</p>
+<p>我下載的是 hadoop-2.7.6.tar.gz</p>
+<p><strong>2. 下載 spark, 解壓縮到, e.g. d:\spark</strong></p>
+<p>http://spark.apache.org/downloads.html</p>
+<p>我下載的是 spark-2.3.0-bin-hadoop-2.7.tgz</p>
+<p><strong>3. 下載 winutils.exe, copy 到 d:\hadoop\bin</strong><br />
+https://github.com/steveloughran/winutils/raw/master/hadoop-2.6.0/bin/winutils.exe</p>
+<p><strong>4. 先建立 c:\tmp\hive 資料夾。然後使用系統管理員身分打開 DOS 視窗(命令提示字元), 執行以下指令：</strong></p>
+<p><code>c:<br />
+d:\hadoop\bin\wintuils.exe chmod 777 \tmp\hive</code></p>
+<p><strong>5. 控制台 =&gt; 系統 =&gt; 環境變數</strong></p>
+<p>(5-1) 新增 HADOOP_HOME 與 SPARK_HOME, 分別設定為 d:\haoop 與 d:\spark</p>
+<p>(5-2) 在系統 PATH 環境變數加入 R bin 路徑, 例如<br />
+d:\R\R-3.4.0\bin\x64;&#8230;&#8230;&#8230;</p>
+<p><strong>6. 建立 d:\temp 資料夾</strong></p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-<br />
+進入R 軟體：</p>
+<p><code><br />
+library(SparkR, lib.loc = c(file.path(Sys.getenv("SPARK_HOME"), "R", "lib")))</code></p>
+<p><code>sparkR.session(master = "local",</code><br />
+<code>sparkConfig = list(spark.sql.warehouse.dir = "/file:d:/temp"))</code></p>
+<p><code>df &lt;- createDataFrame(faithful)</code><br />
+<code>head(df)</code></p>
+<p><img class="alignnone size-full wp-image-954" src="http://steve-chen.tw/wp-content/uploads/2018/06/R_output.jpg" alt="" width="937" height="834" srcset="https://steve-chen.tw/wp-content/uploads/2018/06/R_output.jpg 937w, https://steve-chen.tw/wp-content/uploads/2018/06/R_output-300x267.jpg 300w, https://steve-chen.tw/wp-content/uploads/2018/06/R_output-768x684.jpg 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
